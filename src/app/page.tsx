@@ -9,7 +9,7 @@ const { hero, glance, work } = home;
 
 function Hero() {
   return (
-    <section aria-label="Introduction" className="pt-[104px] pb-16 md:pt-28 md:pb-[72px] lg:pt-40 lg:pb-24">
+    <section aria-label="Introduction" className="pt-[104px] pb-16 md:pt-28 md:pb-[72px] lg:pt-[136px] lg:pb-24">
       <Container>
         <Inner className="flex flex-col gap-10 md:gap-14">
           <div className="flex flex-col gap-14 md:gap-20 lg:flex-row">

@@ -29,18 +29,10 @@ export function Nav() {
   };
 
   return (
-    <header
-      className={cx(
-        "fixed inset-x-0 top-0 z-50 border-b border-line bg-page/92 backdrop-blur-[8px]",
-        isHome ? "pb-4 md:pb-6" : "pb-4 md:pb-5",
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-page/92 pb-4 backdrop-blur-[8px] md:pb-5">
       <nav
         aria-label="Primary"
-        className={cx(
-          "mx-auto flex max-w-[1440px] items-center justify-between px-5 pt-4 md:px-12 xl:px-[120px]",
-          isHome ? "md:pt-10" : "md:pt-5",
-        )}
+        className="mx-auto flex max-w-[1440px] items-center justify-between px-5 pt-4 md:px-12 md:pt-5 xl:px-[120px]"
       >
         <Link href="/" className="flex items-center gap-2.5 rounded-md" aria-label={`${site.shortName} — home`}>
           <span className="flex size-7 items-center justify-center rounded-lg bg-brand text-[11px] leading-[14px] font-bold tracking-[0.22px] text-white">
