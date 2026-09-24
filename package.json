@@ -1,12 +1,13 @@
 {
-  "name": "portfolio-scaffold",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export-shots": "node scripts/export-shots.mjs"
   },
   "dependencies": {
     "next": "16.3.6",
