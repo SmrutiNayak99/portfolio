@@ -15,7 +15,7 @@ export const navLinks = [
   { label: "Playground", href: "/playground" },
 ] as const;
 
-export type ContactRow = { label: string; value: string; href?: string; external?: boolean };
+export type ContactRow = { label: string; value: string; href?: string; external?: boolean; /** Click copies the value instead of following a link. */ copy?: boolean };
 
 export const contact = {
   kicker: "GET IN TOUCH",
@@ -23,7 +23,7 @@ export const contact = {
   email: {
     label: "Email",
     value: "nsmruti66044@gmail.com",
-    href: "mailto:nsmruti66044@gmail.com",
+    copy: true,
   },
   phone: { label: "Phone", value: "+91 99383 16275", href: "tel:+919938316275" },
   linkedin: {

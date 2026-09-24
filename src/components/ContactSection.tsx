@@ -1,4 +1,5 @@
 import { contact, contactRows } from "@/content/site";
+import { CopyButton } from "./CopyButton";
 import { Container, Inner, Kicker } from "./ui";
 
 export function ContactSection({ websiteLabel = "Portfolio" }: { websiteLabel?: "Website" | "Portfolio" }) {
@@ -21,7 +22,13 @@ export function ContactSection({ websiteLabel = "Portfolio" }: { websiteLabel?: 
                 <div key={row.label} className="flex gap-4 border-b border-night-line pb-3">
                   <dt className="w-[100px] shrink-0 text-sm leading-5 text-night-muted">{row.label}</dt>
                   <dd className="min-w-0 flex-1 text-[15px] leading-5 break-words text-white">
-                    {row.href ? (
+                    {row.copy ? (
+                      <CopyButton
+                        value={row.value}
+                        label={row.label}
+                        className="cursor-copy text-left underline-offset-4 transition-colors hover:text-brand-light hover:underline"
+                      />
+                    ) : row.href ? (
                       <a
                         href={row.href}
                         {...(row.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}

@@ -78,7 +78,7 @@ function AtAGlance() {
   return (
     <section aria-label="At a glance" className="pb-16 md:pb-[88px] lg:pb-[120px]">
       <Container>
-        <Inner className="flex flex-col items-center gap-6">
+        <Inner className="flex flex-col gap-6">
           <Kicker>{glance.kicker}</Kicker>
           <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[588px_1fr]">
             <Tile title={glance.whatIDo.title}>
