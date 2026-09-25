@@ -22,6 +22,7 @@ function SectionView({ section }: { section: Section }) {
     <section aria-label={section.name} className={cx(tones[section.tone ?? "page"], pads[section.pad ?? "block"])}>
       <Container>
         <Inner
+          data-reveal-children
           className="flex flex-col [gap:var(--gap-sm)] md:[gap:var(--gap)]"
           style={{ "--gap": `${gap}px`, "--gap-sm": `${Math.round(gap * 0.67)}px` } as CSSProperties}
         >
@@ -95,7 +96,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
                   {study.next.name}
                 </span>
               </span>
-              <span aria-hidden className="text-[26px] leading-8 font-bold text-brand-light transition-transform group-hover:translate-x-1.5 md:text-[32px] md:leading-[38px]">
+              <span aria-hidden className="text-[26px] leading-8 font-bold text-brand-light transition-transform duration-300 ease-out group-hover:translate-x-1.5 md:text-[32px] md:leading-[38px]">
                 →
               </span>
             </Link>

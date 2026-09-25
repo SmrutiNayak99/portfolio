@@ -16,7 +16,7 @@ function Hero() {
   return (
     <section aria-label="Playground" className="pt-[104px] pb-10 md:pt-28 md:pb-14 lg:pt-40 lg:pb-16">
       <Container>
-        <Inner className="flex flex-col gap-5 md:gap-6">
+        <Inner className="stagger flex flex-col gap-5 md:gap-6">
           <Kicker>{hero.kicker}</Kicker>
           <h1 className="text-[36px] leading-[42px] font-bold tracking-[-0.72px] text-ink md:text-[50px] md:leading-[55px] md:tracking-[-1px] lg:text-[64px] lg:leading-[70px] lg:tracking-[-1.28px]">
             {hero.title.map((line, i) => (
@@ -53,7 +53,7 @@ function Section({ section }: { section: PlaygroundSection }) {
             <p className="text-base leading-[26px] text-muted md:max-w-[520px] lg:w-[360px]">{section.description}</p>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div data-reveal-children className="flex flex-col gap-8">
             {section.groups.map((group, i) => (
               <div key={group.caption ?? i} className={cx("flex flex-col", group.gap === 16 ? "gap-4" : "gap-4 md:gap-8")}>
                 {group.caption && <Eyebrow>{group.caption}</Eyebrow>}

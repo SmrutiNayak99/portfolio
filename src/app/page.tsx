@@ -13,7 +13,7 @@ function Hero() {
       <Container>
         <Inner className="flex flex-col gap-10 md:gap-14">
           <div className="flex flex-col gap-14 md:gap-20 lg:flex-row">
-            <div className="flex flex-1 flex-col gap-7">
+            <div className="stagger flex flex-1 flex-col gap-7">
               <Kicker>{hero.kicker}</Kicker>
               <h1 className="text-[44px] leading-[50px] font-bold tracking-[-1.1px] text-ink md:text-[60px] md:leading-[66px] md:tracking-[-1.5px] xl:text-[72px] xl:leading-[78px] xl:tracking-[-1.8px]">
                 {hero.title}
@@ -23,19 +23,19 @@ function Hero() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href={hero.primaryCta.href}
-                  className="rounded-full bg-brand px-[22px] py-3.5 text-[15px] leading-5 font-semibold text-white transition-colors hover:bg-[#0060dd]"
+                  className="press rounded-full bg-brand px-[22px] py-3.5 text-[15px] leading-5 font-semibold text-white hover:bg-[#0060dd] hover:shadow-[0_8px_20px_-8px_rgb(0_111_255/0.6)]"
                 >
                   {hero.primaryCta.label}
                 </a>
                 <Link
                   href={hero.secondaryCta.href}
-                  className="rounded-full border border-line bg-white px-[22px] py-3.5 text-[15px] leading-5 font-semibold text-ink transition-colors hover:border-ink/25"
+                  className="press rounded-full border border-line bg-white px-[22px] py-3.5 text-[15px] leading-5 font-semibold text-ink hover:border-ink/25"
                 >
                   {hero.secondaryCta.label}
                 </Link>
               </div>
             </div>
-            <div className="hidden shrink-0 lg:block">
+            <div className="enter-late hidden shrink-0 lg:block">
               <Image
                 src={hero.portrait.src}
                 alt={hero.portrait.alt}
@@ -48,7 +48,7 @@ function Hero() {
             </div>
           </div>
 
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-7 border-y border-line py-7 lg:grid-cols-4 lg:gap-0">
+          <dl data-reveal className="grid grid-cols-2 gap-x-6 gap-y-7 border-y border-line py-7 lg:grid-cols-4 lg:gap-0">
             {hero.facts.map((fact) => (
               <div key={fact.label} className="flex flex-col gap-1.5">
                 <dt className="text-xs leading-4 font-semibold tracking-[0.96px] text-muted">{fact.label}</dt>
@@ -67,7 +67,7 @@ function Hero() {
 
 function Tile({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-5 overflow-hidden rounded-[20px] border border-line bg-white p-6 md:p-7">
+    <div className="flex flex-col gap-5 overflow-hidden rounded-[20px] border border-line bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-line-strong hover:shadow-[0_12px_32px_-18px_rgb(13_13_26/0.18)] md:p-7">
       <h3 className="text-xl leading-[26px] font-bold tracking-[-0.1px] text-ink">{title}</h3>
       {children}
     </div>
@@ -80,7 +80,7 @@ function AtAGlance() {
       <Container>
         <Inner className="flex flex-col gap-6">
           <Kicker>{glance.kicker}</Kicker>
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[588px_1fr]">
+          <div data-reveal-children className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[588px_1fr]">
             <Tile title={glance.whatIDo.title}>
               <dl className="flex flex-col gap-3.5 text-sm leading-[22px]">
                 {glance.whatIDo.rows.map((r) => (
@@ -94,8 +94,8 @@ function AtAGlance() {
             <Tile title={glance.journey.title}>
               <ol className="flex flex-col">
                 {glance.journey.rows.map((r, i) => (
-                  <li key={r.year} className={`flex gap-5 py-3 ${i > 0 ? "border-t border-line" : ""}`}>
-                    <span className="w-11 shrink-0 text-[13px] leading-[22px] font-semibold text-muted">{r.year}</span>
+                  <li key={r.year} className={`group/row flex gap-5 py-3 ${i > 0 ? "border-t border-line" : ""}`}>
+                    <span className="w-11 shrink-0 text-[13px] leading-[22px] font-semibold text-muted transition-colors group-hover/row:text-brand">{r.year}</span>
                     <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                       <p className="text-[15px] leading-[22px] font-semibold text-ink">{r.title}</p>
                       <p className="text-sm leading-5 text-muted">{r.body}</p>
@@ -131,12 +131,12 @@ function Work() {
             <p className="text-lg leading-7 text-muted md:w-[300px]">{work.aside}</p>
           </div>
 
-          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <ul data-reveal-children className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {work.cards.map((card, i) => (
               <li key={card.slug}>
                 <Link
                   href={`/work/${card.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-page transition-[box-shadow,border-color] duration-200 hover:border-line-strong hover:shadow-[0_18px_40px_-16px_rgb(13_13_26/0.16)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-page transition-[box-shadow,border-color,translate] duration-300 ease-out hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_18px_40px_-16px_rgb(13_13_26/0.16)]"
                 >
                   <div className="overflow-hidden bg-brand-soft">
                     <Shot
@@ -158,7 +158,7 @@ function Work() {
                     <p className="text-[15px] leading-[23px] text-muted">{card.body}</p>
                     <span className="mt-auto flex items-center gap-2 pt-2 text-sm leading-5 font-semibold text-ink">
                       Read case study
-                      <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                      <span aria-hidden className="nudge">
                         →
                       </span>
                     </span>

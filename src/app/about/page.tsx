@@ -17,7 +17,7 @@ function Hero() {
     <section aria-label="About" className="pt-[104px] pb-16 md:pt-28 md:pb-[72px] lg:pt-40 lg:pb-24">
       <Container>
         <Inner className="flex flex-col gap-10 md:gap-20 lg:flex-row">
-          <div className="hidden shrink-0 lg:block">
+          <div className="enter-late hidden shrink-0 lg:block">
             <Image
               src={hero.photo.src}
               alt={hero.photo.alt}
@@ -28,7 +28,7 @@ function Hero() {
               className="aspect-[360/420] w-[360px] rounded-[28px] object-cover"
             />
           </div>
-          <div className="flex min-w-0 flex-1 flex-col gap-6">
+          <div className="stagger flex min-w-0 flex-1 flex-col gap-6">
             <Kicker>{hero.kicker}</Kicker>
             <h1 className="text-[34px] leading-10 font-bold tracking-[-0.68px] text-ink md:text-[46px] md:leading-[50px] md:tracking-[-0.92px] lg:text-[52px] lg:leading-[58px] lg:tracking-[-1.04px]">
               {hero.title}
@@ -51,11 +51,11 @@ function HowIWork() {
       <Container>
         <Inner className="flex flex-col gap-8">
           <SectionKicker>{howIWork.kicker}</SectionKicker>
-          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul data-reveal-children className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {howIWork.tiles.map((tile, i) => (
               <li
                 key={tile.title}
-                className={`flex flex-col gap-3 rounded-[20px] border border-line bg-white p-7 ${
+                className={`flex flex-col gap-3 rounded-[20px] border border-line bg-white p-7 transition-[border-color,box-shadow,translate] duration-300 ease-out hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_12px_32px_-18px_rgb(13_13_26/0.18)] ${
                   i === howIWork.tiles.length - 1 && howIWork.tiles.length % 2 === 1 ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
@@ -78,7 +78,7 @@ function Experience() {
       <Container>
         <Inner className="flex flex-col gap-8">
           <SectionKicker>{experience.kicker}</SectionKicker>
-          <ol className="flex flex-col divide-y divide-line">
+          <ol data-reveal-children className="flex flex-col divide-y divide-line">
             {experience.roles.map((r) => (
               <li key={r.company} className="flex flex-col gap-6 py-8 md:flex-row md:gap-12">
                 <div className="flex flex-col gap-1 md:w-[312px] md:shrink-0 lg:w-[320px]">
@@ -126,7 +126,7 @@ function SkillsAndEducation() {
   return (
     <section aria-label="Skills and education" className="py-16 md:py-[88px] lg:py-[120px]">
       <Container>
-        <Inner className="grid grid-cols-1 items-start gap-6 md:grid-cols-[1fr_295px] lg:grid-cols-[1fr_384px]">
+        <Inner data-reveal-children className="grid grid-cols-1 items-start gap-6 md:grid-cols-[1fr_295px] lg:grid-cols-[1fr_384px]">
           <div className="flex flex-col gap-5 rounded-[20px] border border-line bg-white p-7">
             <h2 className="text-xl leading-[26px] font-bold tracking-[-0.2px] text-ink">{skills.title}</h2>
             <dl className="flex flex-col text-[15px] leading-[22px]">

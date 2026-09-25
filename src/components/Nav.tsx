@@ -50,8 +50,8 @@ export function Nav() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={cx(
-                    "block py-1.5 text-sm leading-5 transition-colors",
-                    active ? "font-semibold text-ink" : "font-medium text-muted hover:text-ink",
+                    "relative block py-1.5 text-sm leading-5 transition-colors after:absolute after:inset-x-0 after:bottom-0.5 after:h-px after:origin-left after:bg-current after:transition-transform after:duration-300 after:ease-out",
+                    active ? "font-semibold text-ink after:scale-x-0" : "font-medium text-muted after:scale-x-0 hover:text-ink hover:after:scale-x-100",
                   )}
                 >
                   {link.label}
@@ -66,18 +66,18 @@ export function Nav() {
             <button
               type="button"
               onClick={goBack}
-              className="hidden items-center gap-2 rounded-full border border-line-strong bg-white py-2 pr-4 pl-3.5 text-ink transition-colors hover:border-ink/30 sm:flex"
+              className="press group hidden items-center gap-2 rounded-full border border-line-strong bg-white py-2 pr-4 pl-3.5 text-ink hover:border-ink/30 sm:flex"
             >
-              <span aria-hidden>←</span>
+              <span aria-hidden className="nudge nudge-back">←</span>
               <span>Back</span>
             </button>
           )}
           <a
             href="#contact"
-            className="flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-white transition-colors hover:bg-ink/85"
+            className="press group flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-white hover:bg-ink/85"
           >
             <span>Contact me</span>
-            <span aria-hidden>→</span>
+            <span aria-hidden className="nudge">→</span>
           </a>
           <button
             type="button"
@@ -85,7 +85,7 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="flex size-[34px] items-center justify-center rounded-full border border-line-strong bg-white text-ink md:hidden"
+            className="press flex size-[34px] items-center justify-center rounded-full border border-line-strong bg-white text-ink md:hidden"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden>
               {open ? (
@@ -99,7 +99,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <ul id="mobile-menu" className="mx-5 mt-4 flex flex-col border-t border-line pt-2 md:hidden">
+        <ul id="mobile-menu" className="stagger mx-5 mt-4 flex flex-col border-t border-line pt-2 md:hidden">
           {navLinks.map((link) => {
             const active = isActive(pathname, link.href);
             return (

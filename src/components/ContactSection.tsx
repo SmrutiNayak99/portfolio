@@ -17,7 +17,7 @@ export function ContactSection({ websiteLabel = "Portfolio" }: { websiteLabel?: 
                 {contact.heading}
               </h2>
             </div>
-            <dl className="flex flex-1 flex-col gap-3.5 font-medium lg:pt-11">
+            <dl data-reveal-children className="flex flex-1 flex-col gap-3.5 font-medium lg:pt-11">
               {contactRows(websiteLabel).map((row) => (
                 <div key={row.label} className="flex gap-4 border-b border-night-line pb-3">
                   <dt className="w-[100px] shrink-0 text-sm leading-5 text-night-muted">{row.label}</dt>

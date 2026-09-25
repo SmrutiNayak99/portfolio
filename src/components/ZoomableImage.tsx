@@ -31,13 +31,14 @@ export function ZoomableImage({
       <button
         type="button"
         onClick={() => dialog.current?.showModal()}
-        className="block size-full cursor-zoom-in"
+        className="block size-full cursor-zoom-in overflow-hidden [&_img]:transition-[transform,filter] [&_img]:duration-500 [&_img]:ease-out hover:[&_img]:scale-[1.012] hover:[&_img]:brightness-[1.02]"
         aria-label={`Enlarge: ${alt}`}
       >
         {img}
       </button>
       <dialog
         ref={dialog}
+        data-lenis-prevent
         onClick={() => dialog.current?.close()}
         className="m-auto max-h-none max-w-none cursor-zoom-out bg-transparent p-0 backdrop:bg-ink/80 backdrop:backdrop-blur-sm"
       >

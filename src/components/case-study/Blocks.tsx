@@ -40,7 +40,7 @@ export function BlockView({ block }: { block: Block }) {
   switch (block.type) {
     case "hero":
       return (
-        <div className="flex flex-col gap-7">
+        <div className="stagger flex flex-col gap-7">
           <Kicker>{block.kicker}</Kicker>
           <h1 className="max-w-[1000px] text-[36px] leading-[43px] font-bold tracking-[-0.72px] text-ink md:text-[48px] md:leading-[56px] md:tracking-[-0.96px] lg:text-[64px] lg:leading-[72px] lg:tracking-[-1.28px]">
             {block.title}
