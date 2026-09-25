@@ -42,7 +42,7 @@ function Hero() {
 }
 
 function SectionKicker({ children }: { children: string }) {
-  return <Kicker className="self-center">{children}</Kicker>;
+  return <Kicker>{children}</Kicker>;
 }
 
 function HowIWork() {
