@@ -46,9 +46,8 @@ html.lenis-smooth {
 
 /* ── Motion ─────────────────────────────────────────────────────────────
    .stagger          page intros fade up in sequence on load
-   [data-reveal]     fades up as it scrolls into view
-   [data-reveal-children]  same, for each direct child
-   Scroll reveals use scroll-driven animations; browsers without them just show the content. */
+   [data-reveal]     fades up once as it scrolls into view (see Reveal.tsx)
+   [data-reveal-children]  same, for each direct child, staggered */
 @keyframes enter {
   from {
     opacity: 0;
@@ -57,25 +56,7 @@ html.lenis-smooth {
   }
 }
 
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(32px) scale(0.985);
-  }
-}
 
-@keyframes pop-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px) scale(0.97);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .stagger > * {
@@ -89,22 +70,16 @@ html.lenis-smooth {
     animation: enter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
   }
 
-  @supports (animation-timeline: view()) {
-    [data-reveal],
-    [data-reveal-children] > * {
-      animation: reveal cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 220px;
-    }
+  html.js-reveal :is([data-reveal], [data-reveal-children] > *):not(.stagger) {
+    transition-property: opacity, transform, translate, box-shadow, border-color, background-color;
+    transition-duration: 0.8s, 0.9s, 0.3s, 0.3s, 0.3s, 0.3s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html.js-reveal :is([data-reveal], [data-reveal-children] > *):not(.stagger, .is-visible) {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
   }
 
-  /* Lightbox opens with a small lift. */
-  dialog[open] {
-    animation: pop-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  dialog[open]::backdrop {
-    animation: fade-in 0.28s ease-out;
-  }
 }
 
 /* Pressable pills: a slight squeeze on click. */

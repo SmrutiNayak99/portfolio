@@ -23,7 +23,7 @@ function Hero() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href={hero.primaryCta.href}
-                  className="press rounded-full bg-brand px-[22px] py-3.5 text-[15px] leading-5 font-semibold text-white hover:bg-[#0060dd] hover:shadow-[0_8px_20px_-8px_rgb(0_111_255/0.6)]"
+                  className="press rounded-full bg-brand px-[22px] py-3.5 text-[15px] leading-5 font-semibold text-white hover:bg-[#0060dd]"
                 >
                   {hero.primaryCta.label}
                 </a>
