@@ -1,5 +1,5 @@
 import type { CaseStudy } from "../types";
-import { panel, row, shot } from "./helpers";
+import { row, shot } from "./helpers";
 
 // Source: Figma "Referral Program — Case Study" (24:153272) + Tablet (24:185148) + Mobile (24:191794).
 export const referralProgram: CaseStudy = {
@@ -206,7 +206,7 @@ export const referralProgram: CaseStudy = {
           rows: [
             row([
               shot("24:157325", "Super Admin roles", 780, 554.67),
-              panel(396, "col", [shot("24:157429", "Create role", 396, 502.78)], { pad: 28 }),
+              shot("24:157429", "Create role", 452, 558.67, { bare: true, radius: 16 }),
             ]),
             row([
               shot("24:157512", "Member roles, Edit member, Permissions popover, Remove confirmation", 1200, 452.7, { bare: true, radius: 16 }),
@@ -243,7 +243,7 @@ export const referralProgram: CaseStudy = {
             ]),
             row([
               shot("24:158005", "Super Admin promotions", 780, 554.67),
-              shot("24:158115", "Create program, Disable promotion", 460, 692.3, { bare: true, radius: 16 }),
+              shot("24:158115", "Create program, Disable promotion", 460, 628, { bare: true, radius: 16 }),
             ]),
           ],
         },
@@ -308,7 +308,7 @@ export const referralProgram: CaseStudy = {
               shot("24:158769", "Customer profile, Referrer — partnered business, Super Admin categories", 1200, 314, { bare: true, radius: 16 }),
             ]),
             row([
-              shot("24:159750", "Refer a friend, Invite referrer, Star referrer", 1200, 398, { bare: true, radius: 16 }),
+              shot("24:159750", "Refer a friend, Invite referrer, Star referrer", 1200, 413.33, { bare: true, radius: 16 }),
             ]),
           ],
         },
