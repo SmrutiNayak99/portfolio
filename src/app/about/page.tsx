@@ -113,6 +113,13 @@ function Role({ r }: { r: AboutRole }) {
                 <dd className="text-muted">{p.what}</dd>
               </div>
             ))}
+            {r.moreProducts && (
+              <div className="flex items-center">
+                <span className="rounded-full bg-brand-soft px-2.5 py-0.5 text-xs leading-5 font-semibold text-brand">
+                  and more
+                </span>
+              </div>
+            )}
           </dl>
         )}
       </div>
@@ -128,19 +135,11 @@ function Experience() {
       <Container>
         <Inner className="flex flex-col gap-8">
           <SectionKicker>{experience.kicker}</SectionKicker>
-          <ol data-reveal-children className="flex flex-col">
-            {current.map((r) => (
+          <ol data-reveal-children className="flex flex-col gap-6">
+            {[...current, ...past].map((r) => (
               <li
                 key={r.company}
                 className="flex flex-col gap-6 rounded-[20px] border border-line bg-white p-7 md:flex-row md:gap-12 md:p-8"
-              >
-                <Role r={r} />
-              </li>
-            ))}
-            {past.map((r, i) => (
-              <li
-                key={r.company}
-                className={`flex flex-col gap-6 py-8 md:flex-row md:gap-12 md:px-8 ${i > 0 ? "border-t border-line" : ""}`}
               >
                 <Role r={r} />
               </li>
@@ -166,11 +165,11 @@ function SkillsAndEducation() {
     <section aria-label="Skills and education" className="py-16 md:py-[88px] lg:py-[120px]">
       <Container>
         <Inner data-reveal-children className="grid grid-cols-1 items-start gap-6 md:grid-cols-[1fr_295px] lg:grid-cols-[1fr_384px]">
-          <div className="flex flex-col gap-5 rounded-[20px] border border-line bg-white p-7">
+          <div className="flex flex-col gap-2.5 rounded-[20px] border border-line bg-white p-7">
             <h2 className="text-xl leading-[26px] font-bold tracking-[-0.2px] text-ink">{skills.title}</h2>
             <dl className="flex flex-col text-[15px] leading-[22px]">
               {skills.rows.map((r) => (
-                <div key={r.label} className="flex flex-col gap-1 border-t border-line py-3 lg:flex-row lg:gap-5">
+                <div key={r.label} className="flex flex-col gap-1 border-t border-line py-2.5 last:pb-1 lg:flex-row lg:gap-5">
                   <dt className="font-semibold text-ink lg:w-[150px] lg:shrink-0">{r.label}</dt>
                   <dd className="min-w-0 flex-1 text-muted">{r.value}</dd>
                 </div>

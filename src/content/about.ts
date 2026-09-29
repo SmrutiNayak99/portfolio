@@ -10,6 +10,8 @@ export type AboutRole = {
   current?: boolean;
   /** Short "what is it" key for product names used in the points. */
   products?: { name: string; what: string }[];
+  /** Shows a small "and more" tag after the product list. */
+  moreProducts?: boolean;
 };
 
 export const about = {
@@ -58,6 +60,7 @@ export const about = {
           "Designed MedChron's chronology workspace and CaseNotes' recording-consent architecture: all-party consent, in-meeting disclosure, a tamper-proof audit log.",
           "Ship my own designs in production repos, including the shared component library, alongside 8 engineers.",
         ],
+        moreProducts: true,
         products: [
           { name: "CasePro", what: "Legal case-management CRM" },
           { name: "AutoDoc", what: "AI document intake" },

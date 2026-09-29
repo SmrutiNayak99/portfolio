@@ -14,9 +14,10 @@ export function Reveal() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const els = [...document.querySelectorAll<HTMLElement>(SELECTOR)].filter((el) => !el.classList.contains("is-visible"));
+    const pending = () =>
+      [...document.querySelectorAll<HTMLElement>(SELECTOR)].filter((el) => !el.classList.contains("is-visible"));
     if (!("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("is-visible"));
+      pending().forEach((el) => el.classList.add("is-visible"));
       return;
     }
     const io = new IntersectionObserver(
@@ -35,8 +36,14 @@ export function Reveal() {
       // Fire as soon as any edge enters the viewport: a fraction threshold made tall images wait until they were mostly on screen.
       { rootMargin: "0px 0px -24px 0px", threshold: 0 },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    pending().forEach((el) => io.observe(el));
+    // Elements rendered after the first pass (a re-render, a hot reload) would otherwise stay hidden.
+    const mo = new MutationObserver(() => pending().forEach((el) => io.observe(el)));
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, [pathname]);
 
   return null;

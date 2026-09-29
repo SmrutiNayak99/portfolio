@@ -7,7 +7,7 @@ export const referralProgram: CaseStudy = {
   name: "Referral Program",
   metaTitle: "Referral Program: One platform, three businesses, one design system",
   metaDescription:
-    "A referral platform has three customers with opposing incentives. I designed one admin system that serves all three from a shared component set.",
+    "How I designed the admin web app for a referral platform used by three different roles: the platform owner, the businesses running referral programs, and the referrers who share them. All three portals are built from one shared set of components.",
   sections: [
     {
       name: "Summary",
@@ -18,7 +18,7 @@ export const referralProgram: CaseStudy = {
           type: "hero",
           kicker: "CASE STUDY 03 · FLINGFLY REFERRAL PLATFORM · ADMIN WEB APP",
           title: "One platform, three businesses, one design system",
-          lede: "Three roles that want different things. One admin system, one component set.",
+          lede: "FlingFly lets businesses reward people for referring new customers. I designed the admin web app for the three groups who use it, the platform owner, the businesses and the referrers, as one product built from one shared set of components.",
         },
         {
           type: "meta",
@@ -26,7 +26,7 @@ export const referralProgram: CaseStudy = {
             { label: "ROLE", value: "Sole product designer" },
             { label: "SCOPE", value: "Super Admin, Business Admin and Referrer portals" },
             { label: "TIMELINE", value: "2 months · 2023" },
-            { label: "CONTEXT", value: "0→1 client project" },
+            { label: "CONTEXT", value: "Client project, built from scratch (0→1)" },
           ],
         },
         { type: "heroPanel", image: shot("24:153293", "Referral platform admin dashboard", 1200, 793.3) },
@@ -39,7 +39,7 @@ export const referralProgram: CaseStudy = {
         {
           type: "statement",
           kicker: "WHY THIS ONE",
-          text: "The largest system I'd designed alone. The hard part wasn't a screen. It was making three very different users feel at home in one product, without tripling the work.",
+          text: "This was the largest system I had designed on my own. The hard part was not any single screen. It was making one product feel right for three very different kinds of users, without designing everything three times.",
         },
       ],
     },
@@ -54,7 +54,7 @@ export const referralProgram: CaseStudy = {
           leftWidth: 440,
           kicker: "CONTEXT",
           heading: "What the platform does",
-          body: "Businesses run referral programs: a discount for the friend, a commission for the referrer. Referrers share, customers redeem, the platform takes a cut. Super Admin, Business Admin and Referrer each need their own admin.",
+          body: "Businesses use the platform to run referral programs. A referrer shares a business with a friend, the friend gets a discount when they buy, and the business pays the referrer a commission for bringing them in. The platform takes a cut of each sale. Three roles manage this: the Super Admin who runs the platform, the Business Admin who runs a business's programs, and the Referrer who shares them, and each needs their own admin portal.",
         },
         {
           type: "group",
@@ -64,16 +64,16 @@ export const referralProgram: CaseStudy = {
               leftWidth: 440,
               kicker: "PROBLEM",
               heading: "Three products, or one?",
-              body: "Four constraints shaped the system.",
+              body: "Each role needed its own portal with its own screens and data. Designing three separate products would have been slow and inconsistent, so I set out to build one system. Four constraints shaped how it had to work.",
             },
             {
               type: "cards",
               compact: true,
               items: [
-                { title: "3× the work", body: "~40 screens per role. Designed separately, three products." },
-                { title: "Money flows both ways", body: "'Commission' means something different to each role." },
-                { title: "Dozens of irreversible actions", body: "Approve, block, disable, delete had to be consistent and unambiguous." },
-                { title: "Real permissions", body: "Finance staff can see payouts but not touch programs." },
+                { title: "Three times the work", body: "Each role needed ~40 screens. Designed separately, that would have meant building and maintaining three different products that slowly drift apart." },
+                { title: "Money flows in different directions", body: "The platform collects commission, businesses owe it, and referrers receive it. The same word means something different to each role, so each screen had to show it their way." },
+                { title: "Dozens of actions that can't be undone", body: "Admins approve, block, disable and delete businesses and people all the time. These actions had to look and behave the same everywhere so nobody makes a mistake." },
+                { title: "Real team permissions", body: "Different staff need different access. For example, finance staff should be able to see payouts but not change a business's referral programs." },
               ],
             },
           ],
@@ -82,8 +82,8 @@ export const referralProgram: CaseStudy = {
           type: "split",
           leftWidth: 440,
           kicker: "MY ROLE",
-          heading: "End to end",
-          body: "Role and journey mapping, IA per role, the component system and all ~120 screens.",
+          heading: "I designed it end to end",
+          body: "I was the only designer on the project. I mapped each role and their main journeys, planned what each portal should contain and how it is organised, built the shared component system, and designed all ~120 screens.",
         },
       ],
     },
@@ -95,8 +95,8 @@ export const referralProgram: CaseStudy = {
           type: "split",
           leftWidth: 440,
           kicker: "APPROACH",
-          heading: "Design the primitives, then the roles",
-          body: "One matrix of entity × action × role became the nav, the permission model and the dialog inventory. Primitives were built once; every role composed from them. Only profile pages got bespoke layouts.",
+          heading: "Design the building blocks first, then the roles",
+          body: "I started with one table that listed every item in the system (businesses, referrers, customers, programs), every action you can take on it, and which roles can take it. That single table told me what goes in each role's navigation, what permissions exist, and which confirmation dialogs I needed. I then designed the basic building blocks once and assembled every role's screens from them, with only profile pages getting their own custom layouts.",
         },
         {
           type: "chips",
@@ -120,7 +120,7 @@ export const referralProgram: CaseStudy = {
           leftWidth: 440,
           kicker: "SOLUTION 1 OF 5",
           title: "One shell, three roles",
-          outcome: "Same dashboard anatomy for every role: KPI strip with month-over-month delta, trend chart, one list widget. The nav shows only what that role owns.",
+          outcome: "Every role gets a dashboard with the same layout: a row of key numbers showing the change from last month, a trend chart, and one list. The navigation is also shared, but each role only sees the sections that belong to them.",
         },
         {
           type: "media",
@@ -136,9 +136,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "The same card language everywhere.", why: "Same numbers, same shapes, no translating." },
-            { text: "One profile template for business, referrer and customer.", why: "Cover, avatar, KPIs, trend. Learn it once." },
-            { text: "One nav; each role sees a subset.", why: "Built once, it can't drift." },
+            { text: "I used the same style of number card on every dashboard and profile.", why: "Businesses, referrers and customers are all looking at the same money from different angles. Keeping the same number in the same kind of card means nobody has to relearn how to read a new screen." },
+            { text: "I designed one profile page template that works for businesses, referrers and customers.", why: "Every profile shares a cover, avatar, KPIs and a trend chart. Learn to read one and you can read them all, and there's one template to maintain instead of three." },
+            { text: "I built one navigation menu and showed each role only the parts they are allowed to use.", why: "A single navigation means each role simply sees a subset of the same menu. Because it is built once, the three versions can't drift apart as the product grows." },
           ],
         },
       ],
@@ -150,8 +150,8 @@ export const referralProgram: CaseStudy = {
           type: "solutionHeader",
           leftWidth: 440,
           kicker: "SOLUTION 2 OF 5",
-          title: "Lifecycle as tabs, consequences as dialogs",
-          outcome: "Requested, Registered, Disapproved: one list, three tabs. Approvals happen in place, not in a separate queue.",
+          title: "Approvals in tabs, clear warnings before big actions",
+          outcome: "Businesses and referrers apply to join, then get approved or turned down. I put all of them in one list with three tabs: Requested, Registered and Disapproved. Admins approve or reject right there in the list, instead of going to a separate review queue.",
         },
         {
           type: "media",
@@ -169,9 +169,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "One sentence of consequence per irreversible action.", why: "Know before you click." },
-            { text: "Deactivate and delete never look alike: one reversible, one red.", why: "Lookalikes get mixed up." },
-            { text: "Blocking says what it restricts before confirming.", why: "No surprises after." },
+            { text: "I gave every action that can't be undone a confirmation dialog with one sentence explaining what will happen.", why: "When an admin is about to do something permanent, one plain sentence tells them exactly what will happen. That way they understand the result before they click, not after." },
+            { text: "I styled deactivate and delete differently, keeping deactivate neutral and making delete red.", why: "Deactivating something can be undone, but deleting it can't. Giving them clearly different styles means an admin working quickly won't confuse the two." },
+            { text: "I made the block confirmation list exactly what the person will lose access to.", why: "Blocking a business or person cuts off specific parts of the platform. Showing that list before the admin confirms means there are no surprises for either side afterwards." },
           ],
         },
       ],
@@ -184,7 +184,7 @@ export const referralProgram: CaseStudy = {
           leftWidth: 440,
           kicker: "SOLUTION 3 OF 5",
           title: "Permissions people can read",
-          outcome: "Roles show permission summaries inline. Permissions are grouped by entity, so a 'Finance Manager' is three checkboxes, not thirty.",
+          outcome: "Admins can create team roles and decide what each role is allowed to do. Each role shows a short summary of its permissions right in the list. Permissions are grouped by area, so setting up a role like 'Finance Manager' takes three checkboxes, not thirty.",
         },
         {
           type: "media",
@@ -201,9 +201,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "Permissions grouped by entity: Team, Business, Customers.", why: "Matches how people think about access." },
-            { text: "One roles component for Super Admin employees and Business teams.", why: "Built once, used twice." },
-            { text: "The permission viewer is a popover, not a page.", why: "Check it without losing your place." },
+            { text: "I grouped permissions by area, such as Team, Business and Customers.", why: "Admins think in questions like 'what can this person do with customers?' rather than scanning a long list of switches. Grouping permissions by area answers that question directly." },
+            { text: "I designed one roles component that works for both the platform's staff and each business's own team.", why: "The Super Admin's employees and every business's team both need roles and permissions. Using one component for both meant it was designed and built once, and it works the same way everywhere." },
+            { text: "I showed a role's permissions in a small popover instead of on a separate page.", why: "Admins usually check what a role allows while they are assigning it to someone. A popover shows the details in place, so they never lose the form they were filling in." },
           ],
         },
       ],
@@ -215,8 +215,8 @@ export const referralProgram: CaseStudy = {
           type: "solutionHeader",
           leftWidth: 440,
           kicker: "SOLUTION 4 OF 5",
-          title: "Programs & promotions: the money mechanic",
-          outcome: "One small form (name, discount, commission, description, end date) creates a program with its own dashboard: sales, referrers, referrals, commission.",
+          title: "Programs and promotions: how the rewards are set",
+          outcome: "A business creates a referral program by filling in one short form: a name, the customer's discount, the referrer's commission, a description and an end date. Each program then gets its own dashboard showing sales, referrers, referrals and commission.",
         },
         {
           type: "media",
@@ -234,9 +234,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "Discount and commission toggle between percentage and fixed.", why: "The two real contract types." },
-            { text: "Super Admin promotions reuse the same form, plus an image.", why: "No second form to learn." },
-            { text: "Status is a first-class column; deactivating is reversible.", why: "Deleting isn't." },
+            { text: "I added a toggle so the discount and commission can be set as either a percentage or a fixed amount.", why: "Businesses reward people either with a percentage or a fixed amount, which are the two deal types they actually use. One toggle handles both, so the form stays short." },
+            { text: "I reused the program form for Super Admin promotions and added one image field.", why: "The Super Admin also runs platform promotions. Using the same form businesses already know, with one extra field for an image, meant there was nothing new to learn on either side." },
+            { text: "I gave status its own column in the list and made deactivating a program reversible.", why: "A dedicated status column lets admins see what is live at a glance. Deactivating only pauses a promotion and can be undone, while deleting can't, so the two actions are kept clearly apart." },
           ],
         },
       ],
@@ -248,8 +248,8 @@ export const referralProgram: CaseStudy = {
           type: "solutionHeader",
           leftWidth: 440,
           kicker: "SOLUTION 5 OF 5",
-          title: "Commission from three sides",
-          outcome: "The same money, shown the way it flows for each role: collected, owed, or paid vs pending.",
+          title: "Commission, seen from all three sides",
+          outcome: "Commission is the same money, but each role sees it differently. The Super Admin sees what the platform has collected, a business sees what it owes its referrers, and a referrer sees what has been paid and what is still pending.",
         },
         {
           type: "media",
@@ -266,9 +266,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "Businesses pay all referrers at once or one at a time.", why: "Every payment produces a receipt." },
-            { text: "Referrers see paid vs pending as tabs; withdraw is the one primary action.", why: "It's why they came." },
-            { text: "One receipt, one history, every side.", why: "Disputes start from the same record." },
+            { text: "I let businesses pay commission to all their referrers at once or to one referrer at a time.", why: "Some businesses settle up with everyone in one go, while others pay as referrals come in. Both options work, and every payment creates a receipt that both sides can check." },
+            { text: "I split a referrer's earnings into Paid and Pending tabs and made Withdraw the one main button.", why: "Referrers mostly want to know what they have been paid and what is still on its way. Withdrawing their money is the main reason they open the app, so it is the one button that stands out." },
+            { text: "I designed one receipt and one payment history that every role sees.", why: "The business, the referrer and the Super Admin all see the same receipt and the same history. If there is ever a disagreement about a payment, everyone starts from the same record." },
           ],
         },
       ],
@@ -280,8 +280,8 @@ export const referralProgram: CaseStudy = {
           type: "solutionHeader",
           leftWidth: 440,
           kicker: "SUPPORTING SURFACES",
-          title: "Customers, referring, categories",
-          outcome: "Customer profiles with redeem rate and repeaters, refer-a-friend and invite flows, star-referrer recognition, categories and brand settings.",
+          title: "Customers, referrals and categories",
+          outcome: "I also designed the screens around the core flows. Customer profiles show how often a customer redeems offers and whether they come back. There are flows for referring a friend and inviting new referrers, a way to recognise star referrers, and settings for business categories and branding.",
         },
         {
           type: "media",
@@ -301,12 +301,12 @@ export const referralProgram: CaseStudy = {
     kicker: "IMPACT",
     heading: "What changed",
     rows: [
-      { value: "3", label: "roles, one product. New screens are composed, not designed from scratch" },
-      { value: "1", label: "dialog pattern that states every consequence up front" },
-      { value: "1", label: "payment record shared by platform, business and referrer" },
+      { value: "3", label: "roles served by one product. New screens are assembled from existing components instead of being designed from scratch." },
+      { value: "1", label: "confirmation dialog pattern that explains the result of every permanent action before the admin confirms it." },
+      { value: "1", label: "payment record that the platform, the business and the referrer all see, so everyone works from the same numbers." },
     ],
   },
-  reflection: "The surface is louder than I'd choose today. I'd keep the system and calm the visuals, and design the referrer's mobile experience first.",
+  reflection: "Looking back, the visual style is busier than I would choose today. I would keep the underlying system as it is but make the visuals calmer. I would also design the referrer's experience for mobile first.",
   next: { slug: "goaler", name: "Goaler" },
   footerNote: "Product Designer · Case study 03 of 04",
 };

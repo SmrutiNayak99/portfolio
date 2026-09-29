@@ -14,7 +14,7 @@ export const goaler: CaseStudy = {
   name: "Goaler",
   metaTitle: "Goaler: One football app for the four people who make a match happen",
   metaDescription:
-    "Amateur football runs on WhatsApp groups and spreadsheets. Goaler gives the player, team admin, organizer and referee each their own experience inside one app, built on one object model.",
+    "Amateur football is usually organised through WhatsApp groups and spreadsheets. Goaler is an iOS app I designed that gives players, team admins, organizers and referees each their own experience, built on one shared set of match, team and venue screens.",
   sections: [
     {
       name: "Summary",
@@ -25,15 +25,15 @@ export const goaler: CaseStudy = {
           type: "hero",
           kicker: "CASE STUDY 04 · GOALER · IOS APP",
           title: "One football app for the four people who make a match happen",
-          lede: "Amateur football runs on group chats. Goaler gives four roles their own app, on one shared model.",
+          lede: "Amateur football matches are usually organised in group chats and spreadsheets. Goaler is an iOS app where players, team admins, organizers and referees each get a version built for their job, all working from the same match data.",
         },
         {
           type: "meta",
           items: [
             { label: "ROLE", value: "Sole product designer" },
-            { label: "SCOPE", value: "Onboarding + Player, Team Admin, Organizer, Referee" },
+            { label: "SCOPE", value: "Onboarding and all four roles: player, team admin, organizer and referee" },
             { label: "TIMELINE", value: "2 months · 2024" },
-            { label: "CONTEXT", value: "0→1 client project" },
+            { label: "CONTEXT", value: "New product for a client, designed from scratch" },
           ],
         },
         { type: "heroPanel", image: shot("24:172075", "Goaler player home and live match", 1200, 887.33) },
@@ -46,7 +46,7 @@ export const goaler: CaseStudy = {
         {
           type: "statement",
           kicker: "WHY THIS ONE",
-          text: "Four people share one match. One of them is on a pitch in sunlight, phone in one hand. One consistent system still had to bend to that.",
+          text: "Four different people take part in every match, and each needs something different from the app. One of them, the referee, uses it outdoors in bright sunlight with one hand while running the game. The challenge was keeping one consistent design system while still making it work in that setting.",
         },
       ],
     },
@@ -61,7 +61,7 @@ export const goaler: CaseStudy = {
           kicker: "CONTEXT",
           heading: "Who it's for",
           leftWidth: 440,
-          body: "Local leagues and pickup tournaments. Four roles, four settings: a player on the couch checking invites, an admin fielding eleven people and collecting money, an organizer running a bracket across venues, a referee on a sunlit pitch. Registration ends with 'Select your role', the moment the app forks.",
+          body: "Goaler is for local leagues and pickup tournaments. A player checks match invites from the couch, a team admin gets eleven people to turn up and collects their fees, an organizer runs a tournament across several venues, and a referee officiates on a sunny pitch. Every new user finishes registration by choosing one of these roles, and from that point the app shows them a different home, menu and set of tools.",
         },
         {
           type: "media",
@@ -83,17 +83,17 @@ export const goaler: CaseStudy = {
             {
               type: "split",
               kicker: "PROBLEM",
-              heading: "Four jobs, one pitch",
-              body: "One match, four very different views.",
+              heading: "Four jobs, one match",
+              body: "Every match involves four people doing very different jobs, and before Goaler each of them relied on a different tool. The app had to bring all of that into one place without forcing everyone through the same screens.",
             },
             {
               type: "cards",
               compact: true,
               items: [
-                { title: "Scattered coordination", body: "Invites in chat, payments in a wallet app, scores in someone's head." },
-                { title: "Shared objects, different homes", body: "Four home screens, one set of match, player and venue objects." },
-                { title: "A hostile context", body: "The referee is outdoors, one-handed, on the clock. The opposite of the other three." },
-                { title: "Money changes hands", body: "Match, tournament and referee fees all have to be trustworthy." },
+                { title: "Coordination was scattered", body: "Invites went out in group chats, payments happened in a separate wallet app, and scores were often only remembered by whoever was there." },
+                { title: "Same data, different needs", body: "All four roles look at the same matches, players and venues, but each needs its own home screen that puts their most important tasks first." },
+                { title: "The referee works in tough conditions", body: "Unlike the other three roles, the referee uses the app outdoors, with one hand, while timing a live match. Small text and buttons would fail there." },
+                { title: "Real money changes hands", body: "Players pay match fees, teams pay tournament fees and referees get paid for their time, so every payment step had to be clear and trustworthy." },
               ],
             },
           ],
@@ -101,9 +101,9 @@ export const goaler: CaseStudy = {
         {
           type: "split",
           kicker: "MY ROLE",
-          heading: "End to end",
+          heading: "Sole designer, end to end",
           leftWidth: 440,
-          body: "Role research, per-role journey maps, IA, the component system, ~190 screens and per-role onboarding questionnaires. Worked with engineering through full implementation.",
+          body: "I was the only designer on the project. I researched each role, mapped the journey for each one, and defined the information architecture and the component system. I designed about 190 screens, including an onboarding questionnaire for each role, and worked with engineering until the app was fully built.",
         },
       ],
     },
@@ -114,9 +114,9 @@ export const goaler: CaseStudy = {
         {
           type: "split",
           kicker: "APPROACH",
-          heading: "Shared objects, role-specific shells",
+          heading: "Shared screens, a separate home for each role",
           leftWidth: 440,
-          body: "Objects first: Match, Tournament, Team, Player, Venue, Referee, one detail screen each, reused by every role. Each role got its own home, nav and accent colour. Both wizards share one stepper. The referee became a product inside the app: dark theme, big targets, live control first.",
+          body: "I started with the six core things the app deals with: matches, tournaments, teams, players, venues and referees. Each got one detail screen that every role reuses. On top of that, each role got its own home screen, navigation and accent colour, and the match and tournament creation wizards share the same step-by-step layout. The referee version became almost a separate product, with a dark theme, large buttons and live match controls up front.",
         },
         {
           type: "chips",
@@ -139,7 +139,7 @@ export const goaler: CaseStudy = {
           title: "Show up, play, remember it",
           leftWidth: 440,
           outcome:
-            "Home answers 'when's my next match, how am I doing'. Invite, pay, done in three screens. After: a two-step rating, profile stats, a leaderboard and a highlight reel.",
+            "The player's home screen answers two questions straight away: when is my next match, and how am I playing. Accepting an invite and paying for a match takes three screens. After the game, players rate it in two steps and can check their stats, the leaderboard and a highlight reel.",
         },
         {
           type: "media",
@@ -161,10 +161,10 @@ export const goaler: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "Analytics on the home screen.", why: "Not buried behind the profile." },
-            { text: "Invite, payment, confirmation as one flow.", why: "One visual language, no hand-offs." },
-            { text: "Two-step rating: the match, then the people.", why: "Feedback stays specific." },
-            { text: "Reels as the social layer.", why: "Public, team or private." },
+            { text: "I put each player's stats directly on the home screen.", why: "Players open the app to see how they're doing, so their stats sit on the first screen instead of several taps deep in the profile." },
+            { text: "I combined the match invite, payment and confirmation into one continuous flow.", why: "Joining a match used to jump between screens that looked unrelated. One continuous flow in one visual language means a player always knows where they are and when they're done." },
+            { text: "I split post-match rating into two steps: first the match, then the players.", why: "Rating the match first and the players second keeps each question small, so feedback stays specific instead of one vague score for everything." },
+            { text: "I added short highlight reels as the social part of the app.", why: "Short clips give players a reason to come back between matches, and each reel can be public, team-only or private, so sharing never feels risky." },
           ],
         },
       ],
@@ -178,7 +178,7 @@ export const goaler: CaseStudy = {
           title: "Field a team in seven steps",
           leftWidth: 440,
           outcome:
-            "Roster management (add, import, invite link) and a Create Game wizard ending in a shareable overview and a 'Game created' confirmation.",
+            "The team admin looks after the squad and sets up games. They can add players by hand, import them, or share an invite link. A seven-step Create Game wizard ends with an overview they can share with the team and a confirmation that the game is created.",
         },
         {
           type: "media",
@@ -207,10 +207,10 @@ export const goaler: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "One decision per screen, fixed progress indicator.", why: "Each step survives an interruption." },
-            { text: "Payment options inside the flow.", why: "Not a separate module." },
-            { text: "Import players from contacts or a file.", why: "The list already exists." },
-            { text: "Same wizard shell for tournaments.", why: "Learn it once." },
+            { text: "I gave the Create Game wizard one decision per screen and a progress indicator that stays visible.", why: "Team admins set up matches on the go and get interrupted constantly. One decision per screen, with progress always visible, lets them stop mid-way and pick up where they left off." },
+            { text: "I placed the payment options inside the game setup flow.", why: "Collecting fees is part of setting up a match, not a separate job. Choosing how players pay inside the flow means it never gets set up later, or forgotten." },
+            { text: "I let admins import players from their phone contacts or from a file.", why: "Most team admins already keep their players in their phone or a spreadsheet. Importing that list saves retyping a squad one name at a time." },
+            { text: "I reused the same wizard layout for creating tournaments.", why: "Tournaments reuse the steps, layout and progress bar of a single match, so anyone who has created one match already knows how to set up a tournament." },
           ],
         },
       ],
@@ -221,10 +221,10 @@ export const goaler: CaseStudy = {
         {
           type: "solutionHeader",
           kicker: "SOLUTION 3 OF 4 · ORGANIZER",
-          title: "Tournaments, venues, referees",
+          title: "Run tournaments, book venues, find referees",
           leftWidth: 440,
           outcome:
-            "Create Tournament reuses the wizard. Details carry a points table. Venue and referee directories let you staff a bracket from a phone.",
+            "The organizer runs whole tournaments. They create one with the same wizard used for single games, then follow the standings in a points table on the tournament page. Directories of venues and referees let them book pitches and staff every match from their phone.",
         },
         {
           type: "media",
@@ -253,9 +253,9 @@ export const goaler: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "Points table inside tournament details.", why: "Not a separate report." },
-            { text: "Venues show facilities, pitch type and a photo.", why: "What organizers actually check." },
-            { text: "Referees browsable by rating and availability.", why: "Invite in one tap." },
+            { text: "I built the points table into the tournament details page.", why: "Organizers check standings between every round. Keeping the points table inside the tournament means they never leave it to find out who's ahead." },
+            { text: "I designed venue listings to show facilities, pitch type and a photo.", why: "Picking a venue comes down to facilities and surface. Showing both up front, with a photo, answers the question before the organizer has to call anyone." },
+            { text: "I made the referee directory sortable by rating and availability.", why: "Finding a referee used to happen over calls and messages. Sorting by rating and availability lets an organizer pick someone trusted and send the invite in one tap." },
           ],
         },
       ],
@@ -266,10 +266,10 @@ export const goaler: CaseStudy = {
         {
           type: "solutionHeader",
           kicker: "SOLUTION 4 OF 4 · REFEREE",
-          title: "A dark, live-first tool",
+          title: "A dark-themed tool for running a live match",
           leftWidth: 440,
           outcome:
-            "Live match control (timer, score, cards, attendance) plus pre- and post-game tasks with photo capture. Dark theme for glare, primary actions in thumb reach.",
+            "The referee accepts match invites, then runs the game from the app. During the match they control the timer, score, cards and attendance. Before and after, they work through task lists that include taking photos. A dark theme cuts glare, and the main actions sit within thumb reach.",
         },
         {
           type: "media",
@@ -291,10 +291,10 @@ export const goaler: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "Timer and score on top, four key actions in a fixed bottom row.", why: "No scrolling mid-match." },
-            { text: "Invite responses with consequence copy, payment status visible.", why: "The referee knows what they're agreeing to." },
-            { text: "Pre- and post-game task lists.", why: "Nothing forgotten between matches." },
-            { text: "Dark theme for the referee only.", why: "Built for glare, not for style." },
+            { text: "I kept the timer and score at the top of the live match screen and fixed the four key actions in a row at the bottom.", why: "A referee glances at the phone between whistles, often one-handed. Timer and score stay on top and the four most-used actions never move, so nothing needs scrolling mid-match." },
+            { text: "I wrote each match invite to explain what accepting means and showed the payment status next to it.", why: "Each invite spells out what accepting commits them to, with payment status right beside it, so the referee knows what they're agreeing to and whether they'll be paid." },
+            { text: "I gave referees a short task list before and after each game.", why: "Checks before kick-off and reports after the whistle are easy to forget between back-to-back matches. A short list for each means nothing slips." },
+            { text: "I gave the referee version its own dark theme.", why: "Referees use the app outdoors in bright light. The dark, high-contrast theme is there for readability on the pitch, and only the referee gets it because only they need it." },
           ],
         },
       ],
@@ -308,7 +308,7 @@ export const goaler: CaseStudy = {
           title: "What makes four roles one app",
           leftWidth: 440,
           outcome:
-            "Role-coloured menus, one filter component per entity, per-role onboarding questionnaires, shared success and notification patterns.",
+            "A few shared pieces hold the four versions together. Each role has menus in its own colour, every list of matches, players or venues uses the same filter component, and each role gets its own onboarding questionnaire. Success screens and notifications look and behave the same for everyone.",
         },
         {
           type: "media",
@@ -334,12 +334,12 @@ export const goaler: CaseStudy = {
     kicker: "IMPACT",
     heading: "What changed",
     rows: [
-      { value: "4", label: "roles in one app. Coordination moves out of group chats" },
-      { value: "1", label: "stepper behind both creation wizards" },
-      { value: "1", label: "referee tool designed for the pitch, not the couch" },
+      { value: "4", label: "roles in one app, so organising a match no longer depends on group chats" },
+      { value: "1", label: "shared step-by-step layout behind both the game and tournament creation wizards" },
+      { value: "1", label: "referee tool designed for use on the pitch, not on the couch" },
     ],
   },
-  reflection: "The referee flow is what I'm proudest of and tested least. I'd put it in a real referee's hands first.",
+  reflection: "The referee flow is the part I'm proudest of, but it is also the part I tested least. If I did this again, I would put it in the hands of a real referee during a match before anything else.",
   next: { name: "Back to Home", label: "DONE READING", href: "/" },
   footerNote: "Product Designer · Case study 04 of 04",
 };

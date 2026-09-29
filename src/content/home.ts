@@ -4,7 +4,7 @@ import type { ShotRef } from "@/components/Shot";
 export const home = {
   hero: {
     kicker: "SMRUTI RANJAN NAYAK · PRODUCT DESIGNER, OMNISAI",
-    title: "I design it. Then I ship it",
+    title: "Product designer who ships the code",
     lede: "Product design across OmnisAI's 14-product legal-AI suite, from the first flow to production code.",
     primaryCta: { label: "See the work ↓", href: "#work" },
     secondaryCta: { label: "About me", href: "/about" },
@@ -20,25 +20,22 @@ export const home = {
     kicker: "WHAT I'M GOOD AT",
     tiles: [
       {
+        title: "AI built into how I work",
+        body: "Five custom Claude Code skills I built run my UI audits and turn designs into production code, so my time goes into design decisions.",
+        proof: [{ label: "How I work", href: "/about" }],
+      },
+      {
         title: "One system, many users",
-        body: "Admin tooling for three roles with opposing incentives; an app for four. Shared objects, role-specific shells.",
+        body: "Products where several roles share the same data, each with a home built for its job: a referral platform for three, a football app for four.",
         proof: [
           { label: "Referral Program", href: "/work/referral-program" },
           { label: "Goaler", href: "/work/goaler" },
         ],
       },
       {
-        title: "AI output you can verify",
-        body: "A source pill on every extracted fact. Version history on every AI change. Nothing the AI says goes unchecked.",
-        proof: [
-          { label: "MedChron", href: "/work/medchron" },
-          { label: "CaseNotes", href: "/work/casenotes" },
-        ],
-      },
-      {
         title: "Design that ships",
-        body: "Top contributor to omnis-common, the design system every OmnisAI app is moving onto. ~300 commits across 9 production repos.",
-        proof: [{ label: "See the code", href: "/work/casenotes#shipped-in-code" }],
+        body: "I build what I design. Top contributor to omnis-common, the design system behind every OmnisAI app, with about 390 commits across 13 repos.",
+        proof: [{ label: "About me", href: "/about" }],
       },
     ],
   },
@@ -61,7 +58,7 @@ export const home = {
         eyebrow: "CASENOTES · OMNISAI · 2026",
         number: "02",
         title: "Turning a meeting recorder into a case-ready record",
-        body: "A shipped AI product attorneys didn't fully trust, fixed at the system level with every AI change visible and reversible.",
+        body: "A shipped AI notetaker that was hard to use. I audited it, fixed the shared components behind 60+ issues, and made every AI edit visible and reversible.",
         visual: { id: "24:181537", label: "CaseNotes meeting summary", w: 588, h: 360, bare: true, radius: 0 },
       },
       {

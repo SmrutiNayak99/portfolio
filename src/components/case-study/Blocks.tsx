@@ -177,7 +177,8 @@ export function BlockView({ block }: { block: Block }) {
     case "solutionHeader":
       return (
         <TwoCol
-          leftWidth={block.leftWidth}
+          // Always the wide column: solution titles are long and wrapped to three lines at 280px.
+          leftWidth={440}
           left={
             <>
               <Kicker>{block.kicker}</Kicker>
