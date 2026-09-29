@@ -6,18 +6,22 @@ export type AboutRole = {
   role: string;
   dates: string;
   points: string[];
+  /** Marks the ongoing role: badge + stronger card. */
+  current?: boolean;
+  /** Short "what is it" key for product names used in the points. */
+  products?: { name: string; what: string }[];
 };
 
 export const about = {
   meta: {
     title: "About",
     description:
-      "Smruti Ranjan Nayak — product designer with a computer-science background, leading design for OmnisAI's 14-product legal-AI suite and shipping it in production code.",
+      "Smruti Ranjan Nayak, product designer with a computer-science background, leading design for OmnisAI's 14-product legal-AI suite and shipping it in production code.",
   },
   hero: {
     kicker: "ABOUT",
-    title: "Intern to design lead in under two years — by shipping what I design.",
-    body: "I'm Smruti, a product designer with a computer-science background. At OmnisAI I lead design for a 14-product legal-AI suite: user flows, information architecture, the shared design system and UX writing — then I implement it in production code alongside eight engineers. Design is my differentiator in a space full of engineers; code is what makes the designs land.",
+    title: "Intern to product designer in under two years, by shipping what I design.",
+    body: "I'm Smruti, a product designer with a computer-science background. At OmnisAI I lead design for a 14-product legal-AI suite: flows, IA, the shared design system and UX writing. And I implement it in production alongside eight engineers.",
     // TODO: swap for the About-specific photo once it can be exported from Figma (frame 24:183485).
     photo: { src: "/images/portrait.png", alt: "Portrait of Smruti Ranjan Nayak" },
   },
@@ -25,16 +29,16 @@ export const about = {
     kicker: "HOW I WORK",
     tiles: [
       {
-        title: "Design that ships",
-        body: "I implement my own designs across production repos and the shared component library — 5 custom Claude Code skills make audit and implementation work repeatable.",
+        title: "Audit first",
+        body: "Start from the live product. Every finding is written with its fix, its rationale and the design-system rule it breaks.",
       },
       {
-        title: "Systems over screens",
-        body: "Extracted ~25 shared primitives from hand-rolled screens; built a ~30-component token system themeable across 8 rail themes and 2 modes.",
+        title: "Fix the system",
+        body: "Fix at the component level, not the screen. One modal spec closed dozens of CaseNotes issues at once.",
       },
       {
-        title: "AI product patterns",
-        body: "Citation and confidence patterns, human-in-the-loop review, processing states, disclosure — designed for products where a wrong extraction has legal cost.",
+        title: "Ship it",
+        body: "Implement it in production, then re-audit. Five custom Claude Code skills make audit and implementation repeatable.",
       },
     ],
   },
@@ -43,30 +47,41 @@ export const about = {
     roles: [
       {
         company: "OmnisAI",
-        role: "Design Lead",
-        dates: "Aug 2025 — Present",
+        role: "Product Designer",
+        dates: "Aug 2025 – Present",
+        current: true,
         points: [
-          "Lead design across the suite; 6 products shaped end to end, the rest through the shared library, landing pages and positioning.",
-          "Redesigned CasePro (~40 screens) and AutoDoc end to end; unified transactional email across 7 products.",
-          "Designed MedChron's chronology workspace and CaseNotes' recording-consent architecture against multi-state consent law.",
+          "Lead product design across a 14-product legal-AI suite: 6 products owned end to end, the rest through the shared design system.",
+          "Redesigned CasePro across ~40 screens: the matter view went from a long scroll to a one-screen index; new-matter creation got step-level validation.",
+          "Built the design system 8 products run on: ~30 tokenized components, 8 product themes, light and dark modes.",
+          "Redesigned AutoDoc end to end (upload, email triage, parsing rules, matter matching) and moved it onto the shared system.",
+          "Designed MedChron's chronology workspace and CaseNotes' recording-consent architecture: all-party consent, in-meeting disclosure, a tamper-proof audit log.",
+          "Ship my own designs in production repos, including the shared component library, alongside 8 engineers.",
+        ],
+        products: [
+          { name: "CasePro", what: "Legal case-management CRM" },
+          { name: "AutoDoc", what: "AI document intake" },
+          { name: "MedChron", what: "AI medical-record chronologies" },
+          { name: "CaseNotes", what: "AI legal meeting notetaker" },
         ],
       },
       {
         company: "Freelance",
         role: "UX Designer",
-        dates: "Mar 2024 — Aug 2025",
+        dates: "Mar 2024 – Aug 2025",
         points: [
-          "Three SaaS and mobile products end to end as sole designer, including a women-only community app built on identity verification.",
-          "Lead-generation websites for service businesses that turned into retainers.",
+          "Three SaaS and mobile products end to end as sole designer: multi-role platforms, community products and marketing sites.",
+          "A women-only community app built around identity verification and interest-based onboarding.",
+          "Lead-generation websites for service businesses that turned into repeat work and retainers.",
         ],
       },
       {
         company: "Metricoid Technology Solutions",
         role: "UX Design Intern",
-        dates: "Nov 2023 — Feb 2024",
+        dates: "Nov 2023 – Feb 2024",
         points: [
-          "Designed the MVP of a multi-role SaaS referral platform with the CTO — business, referrer, customer and super-admin.",
-          "QR-based, device-agnostic discount flow and a promo-tracking dashboard.",
+          "Designed the MVP of a multi-role SaaS referral platform with the CTO, for business, referrer, customer and super-admin.",
+          "A QR-based discount flow and a referral analytics dashboard for conversions, referrals and top referrers.",
         ],
       },
     ] satisfies AboutRole[],
@@ -77,12 +92,12 @@ export const about = {
       {
         label: "Design",
         value:
-          "Product design · Information architecture · Interaction design · Design systems · High-fidelity UI · Prototyping · UX writing · Accessibility",
+          "Product design · Information architecture · Interaction design · Design systems · High-fidelity UI · Prototyping · UX writing · Responsive design · Accessibility",
       },
       {
         label: "AI product design",
         value:
-          "AI output presentation · Confidence & citation patterns · Human-in-the-loop review · Processing states · Disclosure design",
+          "AI workflows · AI output presentation · Confidence & citation patterns · Human-in-the-loop review · Processing states · Disclosure design",
       },
       {
         label: "Research & process",
@@ -102,6 +117,7 @@ export const about = {
   },
   beyondWork: {
     title: "Beyond work",
-    body: "Chess. Ran a chess YouTube channel — streaming, editing highlights into Shorts.",
+    heading: "Chess",
+    detail: "Ran a chess YouTube channel: live streams, with highlights edited into Shorts",
   },
 };

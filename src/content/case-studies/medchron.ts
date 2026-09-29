@@ -5,9 +5,9 @@ import { row, shot } from "./helpers";
 export const medchron: CaseStudy = {
   slug: "medchron",
   name: "MedChron",
-  metaTitle: "MedChron — From a box of medical records to a case you can argue",
+  metaTitle: "MedChron: From a box of medical records to a case you can argue",
   metaDescription:
-    "Personal-injury attorneys receive thousands of pages of medical records per case. I designed the workspace where AI-extracted facts become a navigable, source-verified chronology — with the two views that decide a claim's value: treatment gaps and bills.",
+    "I designed the workspace that turns thousands of pages of medical records into a chronology personal-injury attorneys can verify in one click.",
   sections: [
     {
       name: "Summary",
@@ -16,20 +16,27 @@ export const medchron: CaseStudy = {
       blocks: [
         {
           type: "hero",
-          kicker: "CASE STUDY 02 · MEDCHRON · OMNISAI",
+          kicker: "CASE STUDY 01 · MEDCHRON · OMNISAI",
           title: "From a box of medical records to a case you can argue",
-          lede: "Personal-injury attorneys receive thousands of pages of medical records per case. I designed the workspace where AI-extracted facts become a navigable, source-verified chronology — with the two views that decide a claim's value: treatment gaps and bills.",
+          lede: "Thousands of pages in. One chronology out, where every fact is one click from its source.",
         },
         {
           type: "meta",
           items: [
-            { label: "ROLE", value: "Design Lead — product design + frontend across the patient workspace" },
-            { label: "SCOPE", value: "Patient details, sources, injuries, imaging, treatment gaps, bills, treatments" },
+            { label: "ROLE", value: "Product design + frontend" },
+            { label: "SCOPE", value: "Patient workspace: details, sources, gaps, bills" },
             { label: "TIMELINE", value: "2 weeks · 2026" },
-            { label: "TEAM", value: "1 Designer(me), 1 Engineer" },
+            { label: "TEAM", value: "1 Designer (me), 1 Engineer" },
           ],
         },
-        { type: "heroPanel", image: shot("24:160854", "MedChron patient details", 1200, 824) },
+        {
+          type: "heroPanel",
+          compare: {
+            before: shot("ba-medchron-before", "MedChron patient details, before", 1200, 1003),
+            after: shot("ba-medchron-after", "MedChron patient details, after", 1200, 1003),
+            aspect: 1200 / 760,
+          },
+        },
       ],
     },
     {
@@ -39,7 +46,7 @@ export const medchron: CaseStudy = {
         {
           type: "statement",
           kicker: "WHY THIS ONE",
-          text: "This was the product where the stakes of a wrong AI extraction were clearest — a missed treatment gap or an unverified date can cost a client real money. So the design question was never 'how do we show the data' but 'how do we let an attorney trust it in ten seconds.'",
+          text: "The densest data in the suite: thousands of pages, dozens of providers, years of treatment. My job was to turn all of it into one screen an attorney can read in seconds and prove line by line.",
         },
       ],
     },
@@ -54,7 +61,7 @@ export const medchron: CaseStudy = {
           leftWidth: 440,
           kicker: "CONTEXT",
           heading: "Who, what, constraint",
-          body: "MedChron builds medical chronologies for personal-injury law firms. Users are PI attorneys, paralegals and case managers. Input: PDFs of medical records, bills and imaging reports. Output: a structured patient workspace. The constraint: every claim must be traceable to a page in the record, and the tool has to serve two modes — deep review by a paralegal, and 30-second answers for an attorney before a call.",
+          body: "PI attorneys and paralegals. PDFs in, a patient workspace out. Every claim has to trace to a page.",
         },
         {
           type: "group",
@@ -64,28 +71,16 @@ export const medchron: CaseStudy = {
               leftWidth: 440,
               kicker: "PROBLEM",
               heading: "Dense data, no hierarchy, no trust",
-              body: "Four things made the existing chronology hard to act on.",
+              body: "Four things got in the way.",
             },
             {
               type: "cards",
               compact: true,
               items: [
-                {
-                  title: "Flat chronology",
-                  body: "Records arrived as one long timeline — no way to see an injury, its progression and its cost together.",
-                },
-                {
-                  title: "No provenance",
-                  body: "AI extraction had no visible source, so users re-read the PDFs to check it.",
-                },
-                {
-                  title: "Gaps by hand",
-                  body: "Treatment gaps — the most contested fact in PI negotiation — had to be computed manually.",
-                },
-                {
-                  title: "Hidden bill errors",
-                  body: "Bills were spread across providers and branches, with data-quality problems buried in tables.",
-                },
+                { title: "Flat chronology", body: "One long timeline. No way to see an injury and its cost together." },
+                { title: "No provenance", body: "No visible source, so users re-read the PDFs." },
+                { title: "Gaps by hand", body: "The most contested fact in PI, counted manually." },
+                { title: "Hidden bill errors", body: "Data-quality problems buried in tables." },
               ],
             },
           ],
@@ -94,31 +89,28 @@ export const medchron: CaseStudy = {
           type: "split",
           leftWidth: 440,
           kicker: "MY ROLE",
-          heading: "Information architecture and every screen shown",
-          body: "Owned the IA of the patient workspace and all the screens in this study. Defined the source-citation pattern used across the OmnisAI suite. Designed the treatment-gap and pain-trend visualisations with the data team.",
+          heading: "IA and every screen shown",
+          body: "Owned the IA and every screen here. Defined the source-citation pattern the suite now uses.",
         },
       ],
     },
     {
-      name: "Approach",
+      name: "Before and after",
       gap: 40,
       blocks: [
         {
-          type: "split",
+          type: "solutionHeader",
           leftWidth: 440,
-          kicker: "APPROACH",
-          heading: "Organise by how a case is built",
-          body: "The left nav mirrors the order a case is assembled: Diagnostics → Clinical history → Procedure & care → Data. A persistent patient rail on the right keeps identity and matter in view at all times. One citation primitive — source pill → side sheet → page — is reused everywhere. Visualisation only where the data has shape: pain over time, gaps over time, body regions.",
+          kicker: "BEFORE → AFTER",
+          title: "Organise by how a case is built",
+          outcome: "Drag the slider above. Three changes did most of the work.",
         },
         {
-          type: "chips",
-          indent: 440,
-          items: [
-            { label: "Diagnostics" },
-            { label: "Clinical history" },
-            { label: "Procedure & care" },
-            { label: "Data & analytics" },
-            { label: "Citation primitive" },
+          type: "beforeAfter",
+          changes: [
+            { from: "Seven truncated tabs", to: "A side nav grouped by how a case is built" },
+            { from: "Raw citation markers: [^9 ,^12]", to: "Numbered source pills that open the page" },
+            { from: "Every region tagged 'Critical Issue'", to: "Severity that actually varies" },
           ],
         },
       ],
@@ -128,27 +120,21 @@ export const medchron: CaseStudy = {
       blocks: [
         {
           type: "solutionHeader",
-          kicker: "SOLUTION 1 OF 5",
-          title: "Patient details: the whole case in one scroll",
-          outcome: "Summary, body diagram, timeline, vitals and history read top to bottom without leaving the page.",
+          leftWidth: 440,
+          kicker: "SOLUTION 1 OF 3",
+          title: "Provenance: a source pill on every fact",
+          outcome: "Any extracted statement opens the exact page it came from.",
         },
         {
           type: "media",
-          rows: [
-            row([shot("24:162099", "Patient details — full page", 1200, 1960.75)]),
-            row([
-              shot("24:163268", "Process new medical records modal", 588, 311.46),
-              shot("24:164520", "Patient details — timeline", 588, 440),
-            ]),
-          ],
+          rows: [row([shot("24:165718", "Patient details, sources side sheet", 1200, 640)])],
         },
         {
           type: "decisions",
           items: [
-            "The body diagram (front and back) anchors injuries spatially; each region card links to its sources and pain level.",
-            "The medical timeline separates events from incidents — hover for detail, scroll to explore.",
-            "Vitals show a trend and a status chip, not just a number.",
-            "The records-processing modal lets users pick files and extract with a clear file count and size.",
+            { text: "A numbered source pill on every finding.", why: "Checking the AI becomes one click." },
+            { text: "Finding and source page side by side.", why: "Claim and evidence in one view." },
+            { text: "One primitive, reused everywhere.", why: "CaseNotes and CasePro adopted it." },
           ],
         },
       ],
@@ -159,20 +145,20 @@ export const medchron: CaseStudy = {
         {
           type: "solutionHeader",
           leftWidth: 440,
-          kicker: "SOLUTION 2 OF 5",
-          title: "Provenance: a source pill on every fact",
-          outcome: "Any extracted statement opens the exact record page it came from.",
+          kicker: "SOLUTION 2 OF 3",
+          title: "Treatment gaps: the argument, visualised",
+          outcome: "Gaps in care, computed and plotted per injury. No spreadsheet.",
         },
         {
           type: "media",
-          rows: [row([shot("24:165718", "Patient details — sources side sheet", 1200, 640)])],
+          rows: [row([shot("24:168547", "Treatment gaps", 1200, 920)])],
         },
         {
           type: "decisions",
           items: [
-            "Numbered source pills sit inline with every finding; overflow collapses to '+N more'.",
-            "The side sheet groups sources by provider visit, with page references and the AI's finding side by side.",
-            "The same primitive was later adopted in CaseNotes and CasePro.",
+            { text: "Gaps computed per injury.", why: "Too important to count by hand." },
+            { text: "An adjustable threshold in days.", why: "The attorney sets the line." },
+            { text: "Red for the accident, amber for a gap.", why: "Reads in seconds before a call." },
           ],
         },
       ],
@@ -183,66 +169,9 @@ export const medchron: CaseStudy = {
         {
           type: "solutionHeader",
           leftWidth: 440,
-          kicker: "SOLUTION 3 OF 5",
-          title: "Injuries & imaging: structured, not summarised",
-          outcome:
-            "Each injury carries codes, provider, dates and a pain-level trend; imaging is broken down per spinal level with impressions and recommendations.",
-        },
-        {
-          type: "media",
-          rows: [
-            row([shot("24:167029", "Injuries", 1200, 720)]),
-            row([
-              shot("24:167873", "Imaging results", 780, 560),
-              shot("24:168407", "Pain level hover", 452, 254.7, { bare: true, radius: 16 }),
-            ]),
-          ],
-        },
-        {
-          type: "decisions",
-          items: [
-            "Pain trend shows peak, average and lowest, plus 'worsening vs intake' — the number attorneys quote.",
-            "ICD-10 codes and the diagnosing provider are visible without expanding.",
-            "Imaging findings are normalised per level (L1–L2, L2–L3…) with NORMAL / abnormal states and a link to the source PDF.",
-          ],
-        },
-      ],
-    },
-    {
-      name: "Solution 4",
-      blocks: [
-        {
-          type: "solutionHeader",
-          leftWidth: 440,
-          kicker: "SOLUTION 4 OF 5",
-          title: "Treatment gaps: the argument, visualised",
-          outcome: "Gaps in care are computed, thresholded and shown per injury on a timeline — no spreadsheet.",
-        },
-        {
-          type: "media",
-          rows: [row([shot("24:168547", "Treatment gaps", 1200, 920)])],
-        },
-        {
-          type: "decisions",
-          items: [
-            "KPI strip: injuries flagged, longest gap, total visits, recommended visits.",
-            "Adjustable flag threshold in days, plus an injury filter.",
-            "Red marks the accident; amber marks a gap over threshold. Hover reveals the treatment — or 'no treatment' and its duration.",
-            "Treatment summary by type under each injury.",
-          ],
-        },
-      ],
-    },
-    {
-      name: "Solution 5",
-      blocks: [
-        {
-          type: "solutionHeader",
-          leftWidth: 440,
-          kicker: "SOLUTION 5 OF 5",
+          kicker: "SOLUTION 3 OF 3",
           title: "Bills & treatments: totals you can defend",
-          outcome:
-            "A per-provider billing summary with doctors, dates and branches; a review banner surfaces data-quality issues before they reach a demand letter.",
+          outcome: "Per-provider billing where bad data surfaces before the demand letter.",
         },
         {
           type: "media",
@@ -256,9 +185,9 @@ export const medchron: CaseStudy = {
         {
           type: "decisions",
           items: [
-            "Provider → branches → bills hierarchy, with the source file named on every branch.",
-            "Billed, insurance-paid, patient-paid and outstanding are always visible; warning icons flag rows that need a human.",
-            "Treatment rows expand to diagnosis, impressions and description, each with citations.",
+            { text: "Every branch names its source file.", why: "Every number traces to a document." },
+            { text: "Billed, paid and outstanding, always visible.", why: "That's what goes in the demand." },
+            { text: "Warning icons on rows that need a human.", why: "Flag bad data, don't total it." },
           ],
         },
       ],
@@ -268,14 +197,13 @@ export const medchron: CaseStudy = {
     kicker: "IMPACT",
     heading: "What changed",
     rows: [
-      { value: "1", label: "workspace organised around injury → evidence → cost, replacing a flat chronology" },
-      { value: "Suite", label: "citation pattern adopted across the suite — CaseNotes and CasePro" },
-      { value: "Zero", label: "spreadsheets: treatment gaps and pain trends went from manual to computed and visual" },
-      { value: "Flagged", label: "bill errors surfaced for human review instead of silently propagating" },
+      { value: "Suite", label: "The source pill is now how CaseNotes and CasePro show AI output" },
+      { value: "1 click", label: "from any AI fact to its source page" },
+      { value: "0", label: "treatment gaps counted by hand" },
     ],
   },
   reflection:
-    "The right rail's Chronological Overview is empty in half these screens — a sign I designed the container before the content. Next time I'd define what fills it first.",
+    "The Chronological Overview rail is empty in half these screens. I designed the container before the content. Next time, content first.",
   next: { slug: "casenotes", name: "CaseNotes" },
-  footerNote: "Design Lead, OmnisAI · Case study 02 of 04",
+  footerNote: "Product Designer, OmnisAI · Case study 01 of 04",
 };

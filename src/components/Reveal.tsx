@@ -32,7 +32,8 @@ export function Reveal() {
             setTimeout(() => (el.style.transitionDelay = ""), 900 + i * STEP);
           });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+      // Fire as soon as any edge enters the viewport: a fraction threshold made tall images wait until they were mostly on screen.
+      { rootMargin: "0px 0px -24px 0px", threshold: 0 },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();

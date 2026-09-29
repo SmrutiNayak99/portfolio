@@ -19,7 +19,10 @@ const pads = {
 function SectionView({ section }: { section: Section }) {
   const gap = section.gap ?? 48;
   return (
-    <section aria-label={section.name} className={cx(tones[section.tone ?? "page"], pads[section.pad ?? "block"])}>
+    <section
+      id={section.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+      aria-label={section.name}
+      className={cx(tones[section.tone ?? "page"], pads[section.pad ?? "block"])}>
       <Container>
         <Inner
           data-reveal-children

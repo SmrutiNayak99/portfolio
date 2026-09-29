@@ -2,9 +2,9 @@ export const site = {
   name: "Smruti Ranjan Nayak",
   shortName: "Smruti Nayak",
   initials: "SN",
-  role: "Design Lead, OmnisAI",
+  role: "Product Designer, OmnisAI",
   description:
-    "Product designer who ships the code. Smruti Ranjan Nayak leads design across OmnisAI's 14-product legal-AI suite.",
+    "Smruti Ranjan Nayak designs complex tools people can trust, and ships them in code. Product Designer across OmnisAI's 14-product legal-AI suite.",
   url: "https://smrutinayak.vercel.app",
 };
 
@@ -25,7 +25,7 @@ export const contact = {
     value: "nsmruti66044@gmail.com",
     copy: true,
   },
-  phone: { label: "Phone", value: "+91 99383 16275", href: "tel:+919938316275" },
+  phone: { label: "Phone", value: "+91 99383 16275", copy: true },
   linkedin: {
     label: "LinkedIn",
     value: "linkedin.com/in/smrutinayak99",
@@ -37,8 +37,8 @@ export const contact = {
     href: "https://pixhelp.framer.website/",
     external: true,
   },
-  footerLeft: "Smruti Ranjan Nayak · Design Lead, OmnisAI",
-  footerRight: "Confidential — shared for hiring review only · 2026",
+  footerLeft: "Smruti Ranjan Nayak · Product Designer, OmnisAI",
+  footerRight: "Confidential · shared for hiring review only · 2026",
 };
 
 /** Rows for the contact block. Home labels the last row "Website"; every other page says "Portfolio". */

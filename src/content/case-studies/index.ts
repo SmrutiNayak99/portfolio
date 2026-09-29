@@ -4,7 +4,7 @@ import { goaler } from "./goaler";
 import { medchron } from "./medchron";
 import { referralProgram } from "./referral-program";
 
-export const caseStudies: CaseStudy[] = [casenotes, medchron, referralProgram, goaler];
+export const caseStudies: CaseStudy[] = [medchron, casenotes, referralProgram, goaler];
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((c) => c.slug === slug);

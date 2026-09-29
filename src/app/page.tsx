@@ -5,7 +5,7 @@ import { Shot } from "@/components/Shot";
 import { Container, Inner, Kicker } from "@/components/ui";
 import { home } from "@/content/home";
 
-const { hero, glance, work } = home;
+const { hero, strengths, work } = home;
 
 function Hero() {
   return (
@@ -48,11 +48,11 @@ function Hero() {
             </div>
           </div>
 
-          <dl data-reveal className="grid grid-cols-2 gap-x-6 gap-y-7 border-y border-line py-7 lg:grid-cols-4 lg:gap-0">
+          <dl data-reveal className="grid grid-cols-2 gap-x-6 gap-y-7 border-y border-line py-7 lg:grid-cols-[1fr_1fr_0.75fr_1.25fr] lg:gap-x-8">
             {hero.facts.map((fact) => (
               <div key={fact.label} className="flex flex-col gap-1.5">
                 <dt className="text-xs leading-4 font-semibold tracking-[0.96px] text-muted">{fact.label}</dt>
-                <dd className="text-base leading-6 font-medium text-ink lg:max-w-[270px]">
+                <dd className="text-base leading-6 font-medium text-ink">
                   {fact.value}
                   {fact.note && <span className="block text-xs leading-6 text-faint">{fact.note}</span>}
                 </dd>
@@ -65,46 +65,34 @@ function Hero() {
   );
 }
 
-function Tile({ title, children }: { title: string; children: React.ReactNode }) {
+function Strengths() {
   return (
-    <div className="flex flex-col gap-5 overflow-hidden rounded-[20px] border border-line bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-line-strong hover:shadow-[0_12px_32px_-18px_rgb(13_13_26/0.18)] md:p-7">
-      <h3 className="text-xl leading-[26px] font-bold tracking-[-0.1px] text-ink">{title}</h3>
-      {children}
-    </div>
-  );
-}
-
-function AtAGlance() {
-  return (
-    <section aria-label="At a glance" className="pb-16 md:pb-[88px] lg:pb-[120px]">
+    <section aria-label="What I'm good at" className="pb-16 md:pb-[88px] lg:pb-[120px]">
       <Container>
         <Inner className="flex flex-col gap-6">
-          <Kicker>{glance.kicker}</Kicker>
-          <div data-reveal-children className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[588px_1fr]">
-            <Tile title={glance.whatIDo.title}>
-              <dl className="flex flex-col gap-3.5 text-sm leading-[22px]">
-                {glance.whatIDo.rows.map((r) => (
-                  <div key={r.label} className="flex flex-col gap-1 border-t border-line pt-3 lg:flex-row lg:gap-5">
-                    <dt className="font-semibold text-ink lg:w-[150px] lg:shrink-0">{r.label}</dt>
-                    <dd className="min-w-0 flex-1 text-muted">{r.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Tile>
-            <Tile title={glance.journey.title}>
-              <ol className="flex flex-col">
-                {glance.journey.rows.map((r, i) => (
-                  <li key={r.year} className={`group/row flex gap-5 py-3 ${i > 0 ? "border-t border-line" : ""}`}>
-                    <span className="w-11 shrink-0 text-[13px] leading-[22px] font-semibold text-muted transition-colors group-hover/row:text-brand">{r.year}</span>
-                    <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                      <p className="text-[15px] leading-[22px] font-semibold text-ink">{r.title}</p>
-                      <p className="text-sm leading-5 text-muted">{r.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </Tile>
-          </div>
+          <Kicker>{strengths.kicker}</Kicker>
+          <ol data-reveal-children className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
+            {strengths.tiles.map((t, i) => (
+              <li
+                key={t.title}
+                className="flex flex-col gap-4 overflow-hidden rounded-[20px] border border-line bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-line-strong hover:shadow-[0_12px_32px_-18px_rgb(13_13_26/0.18)] md:p-7"
+              >
+                <span className="text-[13px] leading-[18px] font-semibold tracking-[0.78px] text-brand">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="text-xl leading-[26px] font-bold tracking-[-0.1px] text-ink">{t.title}</h3>
+                <p className="text-[15px] leading-[23px] text-muted">{t.body}</p>
+                <div className="mt-auto flex flex-wrap gap-x-4 gap-y-1 border-t border-line pt-4 text-sm leading-5 font-semibold">
+                  {t.proof.map((p) => (
+                    <Link key={p.href} href={p.href} className="group/proof flex items-center gap-1.5 text-ink hover:text-brand">
+                      {p.label}
+                      <span aria-hidden className="text-brand transition-transform duration-200 group-hover/proof:translate-x-0.5">
+                        →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ol>
         </Inner>
       </Container>
     </section>
@@ -181,7 +169,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <AtAGlance />
+      <Strengths />
       <Work />
       <ContactSection websiteLabel="Website" />
     </>

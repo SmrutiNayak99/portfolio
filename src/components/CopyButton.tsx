@@ -21,7 +21,7 @@ async function writeClipboard(text: string) {
   }
 }
 
-/** Copies `value` on click and shows a short "Copied" confirmation next to it. */
+/** Copies `value` on click. An instant tooltip says "Click to copy" on hover/focus and flips to "Copied" after a click. */
 export function CopyButton({ value, label, className }: { value: string; label: string; className?: string }) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -36,30 +36,26 @@ export function CopyButton({ value, label, className }: { value: string; label: 
   }
 
   return (
-    <span className="inline-flex flex-wrap items-center gap-3">
-      <button
-        type="button"
-        onClick={copy}
-        aria-label={`Copy ${label.toLowerCase()} ${value}`}
-        title="Click to copy"
-        className={className}
-      >
+    <span className="group/copy relative inline-flex">
+      <button type="button" onClick={copy} aria-label={`Copy ${label.toLowerCase()} ${value}`} className={className}>
         {value}
       </button>
       <span
         role="status"
         aria-live="polite"
-        className={`inline-flex items-center gap-1 rounded-full bg-brand px-2.5 py-0.5 text-xs leading-5 font-semibold text-white transition-all duration-200 ${
-          copied ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
+        className={`pointer-events-none absolute bottom-full left-0 mb-2 inline-flex items-center gap-1 rounded-md bg-white px-2 py-1 text-xs leading-4 font-semibold whitespace-nowrap text-ink shadow-[0_6px_16px_-6px_rgb(0_0_0/0.4)] transition-opacity duration-100 ${
+          copied ? "opacity-100" : "opacity-0 group-hover/copy:opacity-100 group-has-[:focus-visible]/copy:opacity-100"
         }`}
       >
-        {copied && (
+        {copied ? (
           <>
-            <svg aria-hidden width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <svg aria-hidden width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-brand">
               <path d="M2.5 6.5l2.2 2.2L9.5 3.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Copied
           </>
+        ) : (
+          "Click to copy"
         )}
       </span>
     </span>

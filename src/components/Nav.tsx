@@ -34,7 +34,7 @@ export function Nav() {
         aria-label="Primary"
         className="mx-auto flex max-w-[1440px] items-center justify-between px-5 pt-4 md:px-12 md:pt-5 xl:px-[120px]"
       >
-        <Link href="/" className="flex items-center gap-2.5 rounded-md" aria-label={`${site.shortName} — home`}>
+        <Link href="/" className="flex items-center gap-2.5 rounded-md" aria-label={`${site.shortName}, home`}>
           <span className="flex size-7 items-center justify-center rounded-lg bg-brand text-[11px] leading-[14px] font-bold tracking-[0.22px] text-white">
             {site.initials}
           </span>

@@ -1,12 +1,15 @@
 import type { Block, LeftWidth } from "@/content/types";
+import { CompareSlider } from "../CompareSlider";
 import { HeroPanel, MediaRowView } from "../Media";
-import { Shot } from "../Shot";
+import { Shot, shotSrc, type ShotRef } from "../Shot";
 import { Eyebrow, Kicker, cx } from "../ui";
 
 const leftCol: Record<LeftWidth, string> = {
   280: "lg:w-[280px]",
   440: "lg:w-[320px] xl:w-[440px]",
 };
+
+const img = (s: ShotRef) => ({ src: shotSrc(s), alt: s.label, w: s.w, h: s.h });
 
 /** Two-column row: fixed left column, fluid right. Stacks below 1024px. */
 export function TwoCol({
@@ -64,6 +67,18 @@ export function BlockView({ block }: { block: Block }) {
       );
 
     case "heroPanel":
+      if (block.compare)
+        return (
+          <div className="overflow-hidden rounded-t-[20px] bg-brand-tint px-4 pt-6 md:rounded-t-[28px] md:px-10 md:pt-10 lg:px-16 lg:pt-16">
+            <CompareSlider
+              before={img(block.compare.before)}
+              after={img(block.compare.after)}
+              aspect={block.compare.aspect ?? block.compare.after.w / block.compare.after.h}
+              priority
+              className="rounded-t-xl border border-b-0 border-shot-line bg-white shadow-shot"
+            />
+          </div>
+        );
       // Whole panel exported from Figma as one image (background + mockups).
       if (block.image)
         return <Shot shot={{ ...block.image, bare: true, topOnly: true, radius: 28 }} priority zoom={false} sizes="(min-width: 1280px) 1200px, 100vw" />;
@@ -213,15 +228,79 @@ export function BlockView({ block }: { block: Block }) {
           left={<Eyebrow>Decisions</Eyebrow>}
           right={
             <ol className="flex flex-col">
-              {block.items.map((item, i) => (
-                <li key={i} className={cx("flex items-start gap-5 py-[18px]", i > 0 && "border-t border-line")}>
-                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-soft text-xs leading-4 font-semibold text-brand">
-                    {i + 1}
-                  </span>
-                  <p className="min-w-0 flex-1 text-base leading-[26px] text-body md:text-[17px] md:leading-7">{item}</p>
-                </li>
-              ))}
+              {block.items.map((item, i) => {
+                const { text, why } = typeof item === "string" ? { text: item, why: undefined } : item;
+                return (
+                  <li key={i} className={cx("flex items-start gap-5 py-[18px]", i > 0 && "border-t border-line")}>
+                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-soft text-xs leading-4 font-semibold text-brand">
+                      {i + 1}
+                    </span>
+                    <div className="flex min-w-0 flex-1 flex-col gap-1">
+                      <p className="text-base leading-[26px] font-medium text-ink md:text-[17px] md:leading-7">{text}</p>
+                      {why && <p className="text-[15px] leading-6 text-subtle md:text-base md:leading-[26px]">{why}</p>}
+                    </div>
+                  </li>
+                );
+              })}
             </ol>
+          }
+        />
+      );
+
+    case "beforeAfter":
+      return (
+        <div className="flex flex-col gap-8 md:gap-10">
+          {block.before && block.after && (
+            <CompareSlider
+              before={img(block.before)}
+              after={img(block.after)}
+              aspect={block.after.w / block.after.h}
+              className="rounded-xl border border-shot-line bg-white shadow-shot"
+            />
+          )}
+          <ul className={cx("grid grid-cols-1 gap-x-6 gap-y-5 md:grid-cols-3", block.before && "border-t border-line pt-6")}>
+            {block.changes.map((c) => (
+              <li key={c.to} className="flex flex-col gap-1.5">
+                <span className="text-sm leading-5 text-subtle line-through decoration-faint">{c.from}</span>
+                <span className="text-base leading-6 font-medium text-ink">
+                  <span aria-hidden className="mr-1.5 text-brand">→</span>
+                  {c.to}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "code":
+      return (
+        <TwoCol
+          leftWidth={440}
+          left={
+            <>
+              <Kicker>{block.kicker}</Kicker>
+              <h2 className="text-[26px] leading-8 font-bold tracking-[-0.26px] text-ink md:text-[32px] md:leading-[38px] md:tracking-[-0.32px]">
+                {block.heading}
+              </h2>
+              <p className="pt-1 text-base leading-[26px] text-body md:text-lg md:leading-[30px]">{block.body}</p>
+            </>
+          }
+          right={
+            <figure className="overflow-hidden rounded-2xl bg-ink">
+              <figcaption className="flex items-center gap-2 border-b border-night-line px-5 py-3 text-xs leading-4 font-medium text-night-muted">
+                <span className="size-2 rounded-full bg-night-line" />
+                {block.file}
+              </figcaption>
+              <pre className="overflow-x-auto px-5 py-5 font-mono text-[13px] leading-[22px] text-night-body">
+                <code>
+                  {block.code.split("\n").map((line, i) => (
+                    <span key={i} className={cx("block", /^\s*(\/\/|\/\*|\*)/.test(line) && "text-night-muted")}>
+                      {line || " "}
+                    </span>
+                  ))}
+                </code>
+              </pre>
+            </figure>
           }
         />
       );

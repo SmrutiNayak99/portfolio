@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactSection } from "@/components/ContactSection";
 import { Container, Inner, Kicker } from "@/components/ui";
-import { about } from "@/content/about";
+import { about, type AboutRole } from "@/content/about";
 
 export const metadata: Metadata = {
   title: about.meta.title,
@@ -72,30 +72,77 @@ function HowIWork() {
   );
 }
 
+function Role({ r }: { r: AboutRole }) {
+  return (
+    <>
+      <div className="flex flex-col gap-1 md:w-[280px] md:shrink-0 lg:w-[288px]">
+        <div className="flex items-center gap-2.5">
+          <h2
+            className={
+              r.current
+                ? "text-2xl leading-[30px] font-bold tracking-[-0.24px] text-ink"
+                : "text-xl leading-[26px] font-bold tracking-[-0.2px] text-ink"
+            }
+          >
+            {r.company}
+          </h2>
+          {r.current && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-soft px-2.5 py-0.5 text-xs leading-5 font-semibold text-brand">
+              <span aria-hidden className="size-1.5 rounded-full bg-brand" />
+              Current
+            </span>
+          )}
+        </div>
+        <p className="text-[15px] leading-[22px] font-medium text-ink">{r.role}</p>
+        <p className="text-sm leading-5 text-muted">{r.dates}</p>
+      </div>
+      <div className="flex min-w-0 flex-1 flex-col gap-6">
+        <ul className="flex flex-col gap-2.5">
+          {r.points.map((point) => (
+            <li key={point} className="flex gap-3 text-base leading-6">
+              <span aria-hidden className="mt-[11px] h-0.5 w-3 shrink-0 rounded-full bg-brand" />
+              <span className="min-w-0 flex-1 text-body">{point}</span>
+            </li>
+          ))}
+        </ul>
+        {r.products && (
+          <dl aria-label="Products" className="grid grid-cols-1 gap-x-6 gap-y-3 border-t border-line pt-5 sm:grid-cols-2">
+            {r.products.map((p) => (
+              <div key={p.name} className="flex items-baseline gap-2 text-sm leading-5">
+                <dt className="font-semibold text-ink">{p.name}</dt>
+                <dd className="text-muted">{p.what}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </div>
+    </>
+  );
+}
+
 function Experience() {
+  const current = experience.roles.filter((r) => r.current);
+  const past = experience.roles.filter((r) => !r.current);
   return (
     <section aria-label="Experience" className="py-16 md:py-[88px] lg:py-[120px]">
       <Container>
         <Inner className="flex flex-col gap-8">
           <SectionKicker>{experience.kicker}</SectionKicker>
-          <ol data-reveal-children className="flex flex-col divide-y divide-line">
-            {experience.roles.map((r) => (
-              <li key={r.company} className="flex flex-col gap-6 py-8 md:flex-row md:gap-12">
-                <div className="flex flex-col gap-1 md:w-[312px] md:shrink-0 lg:w-[320px]">
-                  <h2 className="text-xl leading-[26px] font-bold tracking-[-0.2px] text-ink">{r.company}</h2>
-                  <p className="text-[15px] leading-[22px] font-medium text-ink">{r.role}</p>
-                  <p className="text-sm leading-5 text-muted">{r.dates}</p>
-                </div>
-                <ul className="flex min-w-0 flex-1 flex-col gap-2.5">
-                  {r.points.map((point) => (
-                    <li key={point} className="flex gap-3 text-base leading-6">
-                      <span aria-hidden className="w-4 shrink-0 text-brand">
-                        —
-                      </span>
-                      <span className="min-w-0 flex-1 text-body">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+          <ol data-reveal-children className="flex flex-col">
+            {current.map((r) => (
+              <li
+                key={r.company}
+                className="flex flex-col gap-6 rounded-[20px] border border-line bg-white p-7 md:flex-row md:gap-12 md:p-8"
+              >
+                <Role r={r} />
+              </li>
+            ))}
+            {past.map((r, i) => (
+              <li
+                key={r.company}
+                className={`flex flex-col gap-6 py-8 md:flex-row md:gap-12 md:px-8 ${i > 0 ? "border-t border-line" : ""}`}
+              >
+                <Role r={r} />
               </li>
             ))}
           </ol>
@@ -105,18 +152,10 @@ function Experience() {
   );
 }
 
-function Tile({ title, small, children }: { title: string; small?: boolean; children: React.ReactNode }) {
+function Tile({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-2 rounded-[20px] border border-line bg-white p-7">
-      <h2
-        className={
-          small
-            ? "text-[15px] leading-[18px] font-semibold text-ink"
-            : "text-xl leading-[26px] font-bold tracking-[-0.2px] text-ink"
-        }
-      >
-        {title}
-      </h2>
+      <h2 className="text-xl leading-[26px] font-bold tracking-[-0.2px] text-ink">{title}</h2>
       {children}
     </div>
   );
@@ -145,8 +184,11 @@ function SkillsAndEducation() {
                 <p className="text-sm leading-5 text-muted">{education.detail}</p>
               </div>
             </Tile>
-            <Tile title={beyondWork.title} small>
-              <p className="text-base leading-[25px] text-muted">{beyondWork.body}</p>
+            <Tile title={beyondWork.title}>
+              <div className="flex flex-col gap-2">
+                <p className="text-[15px] leading-[22px] font-semibold text-ink">{beyondWork.heading}</p>
+                <p className="text-sm leading-5 text-muted">{beyondWork.detail}</p>
+              </div>
             </Tile>
           </div>
         </Inner>
