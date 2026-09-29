@@ -4,8 +4,8 @@ import type { ShotRef } from "@/components/Shot";
 export const home = {
   hero: {
     kicker: "SMRUTI RANJAN NAYAK · PRODUCT DESIGNER, OMNISAI",
-    title: "I design complex tools people can trust, and ship them in code",
-    lede: "Product Designer across OmnisAI's 14-product legal-AI suite. One system for many kinds of users, AI output you can verify, and production code alongside engineers.",
+    title: "I design it. Then I ship it",
+    lede: "Product design across OmnisAI's 14-product legal-AI suite, from the first flow to production code.",
     primaryCta: { label: "See the work ↓", href: "#work" },
     secondaryCta: { label: "About me", href: "/about" },
     portrait: { src: "/images/portrait.png", alt: "Portrait of Smruti Ranjan Nayak" },

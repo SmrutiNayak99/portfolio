@@ -89,6 +89,29 @@ export const casenotes: CaseStudy = {
       ],
     },
     {
+      name: "Approach",
+      gap: 40,
+      blocks: [
+        {
+          type: "split",
+          kicker: "APPROACH",
+          heading: "Audit → cluster → fix the system",
+          body: "Audited the shipped product screen by screen, then clustered 60+ findings into five workstreams. Fixes went in at the component level: one modal spec (600px, right-aligned actions, explicit dismiss) closed dozens at once. Fireflies and Otter were references, not templates. Ship, then re-audit.",
+        },
+        {
+          type: "chips",
+          indent: 280,
+          items: [
+            { label: "Meeting details" },
+            { label: "Dashboard & scheduling" },
+            { label: "Lists, search & upload" },
+            { label: "Templates" },
+            { label: "Settings" },
+          ],
+        },
+      ],
+    },
+    {
       name: "Before and after",
       gap: 40,
       blocks: [
@@ -115,13 +138,18 @@ export const casenotes: CaseStudy = {
       blocks: [
         {
           type: "solutionHeader",
-          kicker: "SOLUTION 1 OF 3",
+          kicker: "SOLUTION 1 OF 5",
           title: "Meeting details: AI output you can steer",
-          outcome: "See what the AI changed. Ask it to change something. Revert.",
+          outcome: "Summary, transcript, action items and history in one layout. See what the AI changed. Ask it to change something. Revert.",
         },
         {
           type: "media",
           rows: [
+            row([shot("24:147131", "Meeting details, summary", 1200, 880)]),
+            row([
+              shot("24:147496", "Meeting details, transcripts", 588, 440),
+              shot("24:147814", "Meeting details, action items", 588, 440),
+            ]),
             row(
               [
                 shot("24:148138", "Transcript version history", 780, 580),
@@ -137,6 +165,8 @@ export const casenotes: CaseStudy = {
             { text: "Version history with revert.", why: "An invisible AI edit is a liability." },
             { text: "Regenerate asks 'what should change?'", why: "Steer the AI, don't re-roll it." },
             { text: "The transcript gets its own page.", why: "It's the source of truth." },
+            { text: "Action items show owner, not date.", why: "Redundant Helpful/All and Complete tabs cut." },
+            { text: "Player extends to the sidebar edge, tooltips on every control.", why: "No guessing." },
           ],
         },
       ],
@@ -146,7 +176,70 @@ export const casenotes: CaseStudy = {
       blocks: [
         {
           type: "solutionHeader",
-          kicker: "SOLUTION 2 OF 3",
+          kicker: "SOLUTION 2 OF 5",
+          title: "Dashboard & scheduling: fewer decisions on the way in",
+          outcome: "What happened, what's next, what needs me. And a scheduling form that stopped generating support noise.",
+        },
+        {
+          type: "media",
+          rows: [
+            row([shot("24:148738", "Dashboard", 1200, 750)]),
+            row([
+              shot("24:149320", "Dashboard with meeting states", 780, 487.5),
+              shot("24:149761", "Reschedule meeting modal", 395.7, 577, { bare: true, radius: 16 }),
+            ]),
+            row([
+              shot("24:149884", "Meeting overview sidebar, Add CaseNotes bot, Bot dropdown, Menu options", 1200, 536, { bare: true, radius: 16 }),
+            ]),
+          ],
+        },
+        {
+          type: "decisions",
+          items: [
+            { text: "Four defined KPIs, not a decorative row.", why: "Every number says what it counts." },
+            { text: "A card for every state: scheduled, live, done, cancelled, no-bot.", why: "A tooltip explains why a bot didn't join." },
+            { text: "Click the card to open, the name to rename.", why: "One affordance per action." },
+            { text: "Otter-style sidebar: bot invite, upcoming, AI chat by day.", why: "A familiar pattern." },
+            { text: "Schedule modal: side-by-side times, aligned labels, no accidental dismiss.", why: "Fewer support tickets." },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Solution 3",
+      blocks: [
+        {
+          type: "solutionHeader",
+          kicker: "SOLUTION 3 OF 5",
+          title: "Lists, search & upload: dense without being noisy",
+          outcome: "Scannable by day, findable by type, and uploads never block you.",
+        },
+        {
+          type: "media",
+          rows: [
+            row([
+              shot("24:150115", "Meeting listing", 588, 375.16),
+              shot("24:150566", "Meeting uploaded modal", 588, 330.75),
+            ]),
+          ],
+        },
+        {
+          type: "decisions",
+          items: [
+            { text: "Grouped by Today, Yesterday, weekday, with counts.", why: "Date in lists, time only in detail." },
+            { text: "Status tabs and filter chips.", why: "Replace one long list." },
+            { text: "Search split into meetings, transcripts and action items.", why: "Keywords highlighted." },
+            { text: "Upload success explains background processing.", why: "Keep working while it runs." },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Solution 4",
+      blocks: [
+        {
+          type: "solutionHeader",
+          kicker: "SOLUTION 4 OF 5",
           title: "Templates: you decide what the AI writes",
           outcome: "Pick the modules, write your own prompts, see the meeting page update live.",
         },
@@ -175,16 +268,17 @@ export const casenotes: CaseStudy = {
             { text: "A live preview next to the editor.", why: "See the meeting page before you save." },
             { text: "Start from an existing template.", why: "Most firms tweak, few start blank." },
             { text: "Unsaved prompts are never lost silently.", why: "Leaving asks first." },
+            { text: "Global templates tagged, edit and delete hidden.", why: "Nobody breaks the firm's defaults." },
           ],
         },
       ],
     },
     {
-      name: "Solution 3",
+      name: "Solution 5",
       blocks: [
         {
           type: "solutionHeader",
-          kicker: "SOLUTION 3 OF 3",
+          kicker: "SOLUTION 5 OF 5",
           title: "Settings: a 0→1 built plan-first",
           outcome: "General, notifications, integrations and privacy. Plan approved, then designed.",
         },
@@ -195,6 +289,10 @@ export const casenotes: CaseStudy = {
               shot("24:152015", "Settings, general", 588, 349.13),
               shot("24:152163", "Settings, privacy", 588, 358.93),
             ]),
+            row([
+              shot("24:152411", "Settings, integrations", 780, 484.66),
+              shot("24:152567", "Keyboard shortcuts", 452, 656, { bare: true, radius: 16 }),
+            ]),
           ],
         },
         {
@@ -202,6 +300,7 @@ export const casenotes: CaseStudy = {
           items: [
             { text: "IA written before any pixels.", why: "Cheap on paper, expensive in code." },
             { text: "A Privacy tab for recording consent.", why: "In legal, consent is a feature." },
+            { text: "Keyboard shortcuts as a discoverable sheet.", why: "Not a hidden list." },
           ],
         },
       ],

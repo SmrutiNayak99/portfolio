@@ -54,7 +54,7 @@ export const referralProgram: CaseStudy = {
           leftWidth: 440,
           kicker: "CONTEXT",
           heading: "What the platform does",
-          body: "Businesses run referral programs. Referrers share them, customers redeem, the platform takes a cut. Each role needs its own admin.",
+          body: "Businesses run referral programs: a discount for the friend, a commission for the referrer. Referrers share, customers redeem, the platform takes a cut. Super Admin, Business Admin and Referrer each need their own admin.",
         },
         {
           type: "group",
@@ -70,10 +70,10 @@ export const referralProgram: CaseStudy = {
               type: "cards",
               compact: true,
               items: [
-                { title: "3× the work", body: "~40 screens per role. Separately, three products." },
+                { title: "3× the work", body: "~40 screens per role. Designed separately, three products." },
                 { title: "Money flows both ways", body: "'Commission' means something different to each role." },
-                { title: "Irreversible actions", body: "Approve, block, delete had to be unambiguous." },
-                { title: "Real permissions", body: "Finance can see payouts but not touch programs." },
+                { title: "Dozens of irreversible actions", body: "Approve, block, disable, delete had to be consistent and unambiguous." },
+                { title: "Real permissions", body: "Finance staff can see payouts but not touch programs." },
               ],
             },
           ],
@@ -81,9 +81,22 @@ export const referralProgram: CaseStudy = {
         {
           type: "split",
           leftWidth: 440,
+          kicker: "MY ROLE",
+          heading: "End to end",
+          body: "Role and journey mapping, IA per role, the component system and all ~120 screens.",
+        },
+      ],
+    },
+    {
+      name: "Approach",
+      gap: 40,
+      blocks: [
+        {
+          type: "split",
+          leftWidth: 440,
           kicker: "APPROACH",
           heading: "Design the primitives, then the roles",
-          body: "One matrix of entity × action × role became the nav, the permissions and the dialog list. Primitives built once; every role composed from them.",
+          body: "One matrix of entity × action × role became the nav, the permission model and the dialog inventory. Primitives were built once; every role composed from them. Only profile pages got bespoke layouts.",
         },
         {
           type: "chips",
@@ -105,9 +118,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "solutionHeader",
           leftWidth: 440,
-          kicker: "SOLUTION 1 OF 3",
+          kicker: "SOLUTION 1 OF 5",
           title: "One shell, three roles",
-          outcome: "Same dashboard anatomy for every role. The nav shows only what that role owns.",
+          outcome: "Same dashboard anatomy for every role: KPI strip with month-over-month delta, trend chart, one list widget. The nav shows only what that role owns.",
         },
         {
           type: "media",
@@ -123,8 +136,9 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
-            { text: "One nav; each role sees a subset.", why: "Built once, it can't drift." },
             { text: "The same card language everywhere.", why: "Same numbers, same shapes, no translating." },
+            { text: "One profile template for business, referrer and customer.", why: "Cover, avatar, KPIs, trend. Learn it once." },
+            { text: "One nav; each role sees a subset.", why: "Built once, it can't drift." },
           ],
         },
       ],
@@ -135,13 +149,17 @@ export const referralProgram: CaseStudy = {
         {
           type: "solutionHeader",
           leftWidth: 440,
-          kicker: "SOLUTION 2 OF 3",
-          title: "Consequences, stated before they happen",
-          outcome: "Approvals happen in place. Every irreversible action explains itself first.",
+          kicker: "SOLUTION 2 OF 5",
+          title: "Lifecycle as tabs, consequences as dialogs",
+          outcome: "Requested, Registered, Disapproved: one list, three tabs. Approvals happen in place, not in a separate queue.",
         },
         {
           type: "media",
           rows: [
+            row([
+              shot("24:155693", "Businesses, registered", 588, 418.13),
+              shot("24:155915", "Business profile", 588, 415.27),
+            ]),
             row([
               shot("24:156815", "Referrer profile", 780, 554.67),
               shot("24:157279", "Accept referrer confirmation, Disapprove confirmation, Block business confirmation", 460, 652.7, { bare: true, radius: 16 }),
@@ -152,7 +170,8 @@ export const referralProgram: CaseStudy = {
           type: "decisions",
           items: [
             { text: "One sentence of consequence per irreversible action.", why: "Know before you click." },
-            { text: "Deactivate and delete never look alike.", why: "Lookalikes get mixed up." },
+            { text: "Deactivate and delete never look alike: one reversible, one red.", why: "Lookalikes get mixed up." },
+            { text: "Blocking says what it restricts before confirming.", why: "No surprises after." },
           ],
         },
       ],
@@ -163,9 +182,74 @@ export const referralProgram: CaseStudy = {
         {
           type: "solutionHeader",
           leftWidth: 440,
-          kicker: "SOLUTION 3 OF 3",
+          kicker: "SOLUTION 3 OF 5",
+          title: "Permissions people can read",
+          outcome: "Roles show permission summaries inline. Permissions are grouped by entity, so a 'Finance Manager' is three checkboxes, not thirty.",
+        },
+        {
+          type: "media",
+          rows: [
+            row([
+              shot("24:157325", "Super Admin roles", 780, 554.67),
+              shot("24:157429", "Create role", 452, 558.67, { bare: true, radius: 16 }),
+            ]),
+            row([
+              shot("24:157512", "Member roles, Edit member, Permissions popover, Remove confirmation", 1200, 452.7, { bare: true, radius: 16 }),
+            ]),
+          ],
+        },
+        {
+          type: "decisions",
+          items: [
+            { text: "Permissions grouped by entity: Team, Business, Customers.", why: "Matches how people think about access." },
+            { text: "One roles component for Super Admin employees and Business teams.", why: "Built once, used twice." },
+            { text: "The permission viewer is a popover, not a page.", why: "Check it without losing your place." },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Solution 4",
+      blocks: [
+        {
+          type: "solutionHeader",
+          leftWidth: 440,
+          kicker: "SOLUTION 4 OF 5",
+          title: "Programs & promotions: the money mechanic",
+          outcome: "One small form (name, discount, commission, description, end date) creates a program with its own dashboard: sales, referrers, referrals, commission.",
+        },
+        {
+          type: "media",
+          rows: [
+            row([
+              shot("24:157687", "Business programs", 588, 418.13),
+              shot("24:157800", "Business program dashboard", 588, 418.13),
+            ]),
+            row([
+              shot("24:158005", "Super Admin promotions", 780, 554.67),
+              shot("24:158115", "Create program, Disable promotion", 460, 628, { bare: true, radius: 16 }),
+            ]),
+          ],
+        },
+        {
+          type: "decisions",
+          items: [
+            { text: "Discount and commission toggle between percentage and fixed.", why: "The two real contract types." },
+            { text: "Super Admin promotions reuse the same form, plus an image.", why: "No second form to learn." },
+            { text: "Status is a first-class column; deactivating is reversible.", why: "Deleting isn't." },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Solution 5",
+      blocks: [
+        {
+          type: "solutionHeader",
+          leftWidth: 440,
+          kicker: "SOLUTION 5 OF 5",
           title: "Commission from three sides",
-          outcome: "The same money, shown the way it flows for each role: collected, owed, or paid.",
+          outcome: "The same money, shown the way it flows for each role: collected, owed, or paid vs pending.",
         },
         {
           type: "media",
@@ -182,8 +266,32 @@ export const referralProgram: CaseStudy = {
         {
           type: "decisions",
           items: [
+            { text: "Businesses pay all referrers at once or one at a time.", why: "Every payment produces a receipt." },
+            { text: "Referrers see paid vs pending as tabs; withdraw is the one primary action.", why: "It's why they came." },
             { text: "One receipt, one history, every side.", why: "Disputes start from the same record." },
-            { text: "Referrers get one primary action: withdraw.", why: "It's why they came." },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Supporting surfaces",
+      blocks: [
+        {
+          type: "solutionHeader",
+          leftWidth: 440,
+          kicker: "SUPPORTING SURFACES",
+          title: "Customers, referring, categories",
+          outcome: "Customer profiles with redeem rate and repeaters, refer-a-friend and invite flows, star-referrer recognition, categories and brand settings.",
+        },
+        {
+          type: "media",
+          rows: [
+            row([
+              shot("24:158769", "Customer profile, Referrer partnered business, Super Admin categories", 1200, 314, { bare: true, radius: 16 }),
+            ]),
+            row([
+              shot("24:159750", "Refer a friend, Invite referrer, Star referrer", 1200, 413.33, { bare: true, radius: 16 }),
+            ]),
           ],
         },
       ],
